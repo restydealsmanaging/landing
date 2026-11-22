@@ -14,31 +14,32 @@ export default function HowItWorksSection() {
   });
 
   // 1. Full-width dark beige sheet panel translation
-  // Smoothly rises from bottom to dock to top
-  const panelTranslateY = useTransform(scrollYProgress, [0, 0.22], ["20%", "0%"]);
+  // Smoothly rises from bottom to dock cleanly to top
+  const panelTranslateY = useTransform(scrollYProgress, [0, 0.18], ["25%", "0%"]);
 
   // 2. Stage 1: Statement Title ("Il ristorante sceglie. Tu gusti in sala.")
-  // Centered with massive breathing room, fades in, holds, then lifts and dissolves
+  // Fades in promptly, holds for reading, then lifts and dissolves before cards arrive
   const statementOpacity = useTransform(
     scrollYProgress,
-    [0.05, 0.18, 0.36, 0.46],
+    [0.02, 0.1, 0.22, 0.3],
     [0, 1, 1, 0]
   );
   const statementY = useTransform(
     scrollYProgress,
-    [0.05, 0.18, 0.36, 0.46],
-    [30, 0, 0, -40]
+    [0.02, 0.1, 0.22, 0.3],
+    [25, 0, 0, -35]
   );
   const statementPointerEvents = useTransform(scrollYProgress, (v) =>
-    v < 0.44 ? "auto" : "none"
+    v < 0.3 ? "auto" : "none"
   );
 
-  // 3. Stage 2: 3 Step Cards
-  // Slides up gracefully with generous spacing, then remains fully interactive
-  const cardsOpacity = useTransform(scrollYProgress, [0.44, 0.58, 1], [0, 1, 1]);
-  const cardsY = useTransform(scrollYProgress, [0.44, 0.58, 1], [50, 0, 0]);
+  // 3. Stage 2: 3 Step Cards ("Come funziona")
+  // Enters decisively between 0.28 and 0.36, then holds completely steady and fully visible
+  // from 0.36 all the way to 1.0 (64% of scroll distance). No accidental reversing!
+  const cardsOpacity = useTransform(scrollYProgress, [0.28, 0.36, 1], [0, 1, 1]);
+  const cardsY = useTransform(scrollYProgress, [0.28, 0.36, 1], [30, 0, 0]);
   const cardsPointerEvents = useTransform(scrollYProgress, (v) =>
-    v >= 0.44 ? "auto" : "none"
+    v >= 0.28 ? "auto" : "none"
   );
 
   const steps = [
@@ -72,7 +73,7 @@ export default function HowItWorksSection() {
     <div
       ref={containerRef}
       id="come-funziona"
-      className="relative h-[230vh] -mt-14 sm:-mt-20 md:-mt-24 pointer-events-auto"
+      className="relative h-[240vh] -mt-14 sm:-mt-20 md:-mt-24 pointer-events-auto"
     >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-end pointer-events-none">
@@ -97,52 +98,52 @@ export default function HowItWorksSection() {
             <div className="w-16 h-1 rounded-full bg-resty-orange/40 mx-auto mt-8" />
           </motion.div>
 
-          {/* STAGE 2: The 3 Cards that take its place with generous breathing room */}
+          {/* STAGE 2: "Come funziona" Header & 3 Cards - Perfectly Centered, Never Cut Off */}
           <motion.div
             style={{
               opacity: cardsOpacity,
               y: cardsY,
               pointerEvents: cardsPointerEvents,
             }}
-            className="w-full max-w-6xl mx-auto will-change-[transform,opacity]"
+            className="w-full max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 py-2 sm:py-4 flex flex-col justify-center will-change-[transform,opacity]"
           >
-            {/* Header Above Cards */}
-            <div className="text-center mb-10 sm:mb-14 max-w-3xl mx-auto">
-              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-tight mb-4">
+            {/* Header Above Cards: Cleanly centered with ample top clearance */}
+            <div className="text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl mx-auto">
+              <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-tight mb-2 sm:mb-3">
                 Come funziona
               </h2>
-              <p className="text-base sm:text-lg text-resty-stone-light font-sans font-normal leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-resty-stone-light font-sans font-normal leading-relaxed max-w-2xl mx-auto">
                 Il locale decide quali piatti proporre, a quale prezzo e in quali orari. Tu consulti l&apos;offerta e gusti il piatto nel ristorante, con la qualità e il servizio di sempre.
               </p>
             </div>
 
-            {/* 3 Step Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {/* 3 Step Cards Grid: Ergonomic compact heights that fit cleanly inside viewport */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
                   <div
                     key={step.number}
-                    className="group relative bg-white rounded-3xl p-6 sm:p-8 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-[transform,box-shadow] duration-300 flex flex-col justify-between"
+                    className="group relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-[transform,box-shadow] duration-300 flex flex-col justify-between"
                   >
                     <div>
                       {/* Top Bar with Number and Badge */}
-                      <div className="flex items-center justify-between mb-5 sm:mb-6">
-                        <span className="font-heading font-black text-2xl sm:text-3xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
+                      <div className="flex items-center justify-between mb-3 sm:mb-4">
+                        <span className="font-heading font-black text-xl sm:text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
                           {step.number}
                         </span>
-                        <span className="text-[11px] sm:text-xs font-semibold px-2.5 py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
+                        <span className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
                           {step.badge}
                         </span>
                       </div>
 
                       {/* Icon */}
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-resty-peach/70 text-resty-orange flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 group-hover:bg-resty-orange group-hover:text-white transition-[transform,background-color,color] duration-300">
-                        <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-resty-peach/70 text-resty-orange flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-resty-orange group-hover:text-white transition-[transform,background-color,color] duration-300">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
 
                       {/* Title & Description */}
-                      <h3 className="font-heading font-bold text-lg sm:text-xl text-resty-stone mb-2 sm:mb-3 leading-snug">
+                      <h3 className="font-heading font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
                         {step.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
@@ -150,7 +151,7 @@ export default function HowItWorksSection() {
                       </p>
                     </div>
 
-                    <div className="mt-6 sm:mt-8 pt-4 border-t border-resty-stone-border/50 flex items-center gap-1.5 text-xs font-semibold text-resty-orange">
+                    <div className="mt-4 sm:mt-6 pt-3 border-t border-resty-stone-border/50 flex items-center gap-1.5 text-xs font-semibold text-resty-orange">
                       <span>Passo {index + 1} del percorso</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </div>

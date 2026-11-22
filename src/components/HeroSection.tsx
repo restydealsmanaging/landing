@@ -111,7 +111,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* Dish Title */}
-                  <h3 className="font-heading font-bold text-lg text-resty-stone leading-snug mb-2">
+                  <h3 className="font-sans font-bold text-lg text-resty-stone leading-snug mb-2">
                     Risotto ai Porcini &amp; Mirtilli delle Prealpi
                   </h3>
 

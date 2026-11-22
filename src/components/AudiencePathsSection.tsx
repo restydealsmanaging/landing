@@ -10,7 +10,7 @@ export default function AudiencePathsSection() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Due percorsi, un unico valore</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
+          <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
             Scegli come vivere <span className="text-resty-orange">RestyDeals</span>
           </h2>
           <p className="text-base text-resty-stone-light leading-relaxed">
@@ -28,7 +28,7 @@ export default function AudiencePathsSection() {
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-orange-dark border border-resty-stone-border/60 mb-3 inline-block">
                 Area Ristoratori
               </span>
-              <h3 className="font-heading font-extrabold text-2xl text-resty-stone mb-3 leading-snug">
+              <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
                 Dai più valore al tuo menù
               </h3>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed mb-6">
@@ -64,7 +64,7 @@ export default function AudiencePathsSection() {
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-stone-light border border-resty-stone-border/60 mb-3 inline-block">
                 Area Clienti
               </span>
-              <h3 className="font-heading font-extrabold text-2xl text-resty-stone mb-3 leading-snug">
+              <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
                 Stessa qualità, prezzo in promozione
               </h3>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed mb-6">
@@ -99,7 +99,7 @@ export default function AudiencePathsSection() {
               <Heart className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-lg text-resty-stone">
+              <h4 className="font-sans font-bold text-lg text-resty-stone">
                 Due ragazzi della provincia di Varese
               </h4>
               <p className="text-xs sm:text-sm text-resty-stone-light">

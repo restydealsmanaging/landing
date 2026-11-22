@@ -47,7 +47,7 @@ export default function FaqSection() {
             <HelpCircle className="w-3.5 h-3.5 text-resty-orange" />
             <span>Domande Frequenti</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
+          <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
             Risposte chiare, prima di iniziare.
           </h2>
           <p className="text-base text-resty-stone-light max-w-xl mx-auto">
@@ -67,7 +67,7 @@ export default function FaqSection() {
                 <button
                   type="button"
                   onClick={() => toggleAccordion(index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-resty-stone hover:text-resty-orange transition-colors cursor-pointer"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-sans font-bold text-base sm:text-lg text-resty-stone hover:text-resty-orange transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span>{faq.question}</span>

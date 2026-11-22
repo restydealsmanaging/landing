@@ -11,11 +11,11 @@ export default function AboutUsSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
             Chi Siamo
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4">
+          <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
             Due ragazzi della <br />
             <span className="text-resty-orange">provincia di Varese.</span>
           </h2>
-          <div className="text-xl sm:text-2xl font-heading font-bold text-resty-stone mb-4">
+          <div className="text-xl sm:text-2xl font-sans font-medium text-resty-stone mb-4">
             Una cucina, un computer, un&apos;idea.
           </div>
           <p className="text-base sm:text-lg text-resty-stone-light leading-relaxed">
@@ -33,7 +33,7 @@ export default function AboutUsSection() {
               <div className="w-12 h-12 rounded-2xl bg-resty-peach flex items-center justify-center text-resty-orange mb-6">
                 <Heart className="w-6 h-6" />
               </div>
-              <h3 className="font-heading font-bold text-2xl text-resty-stone mb-4">
+              <h3 className="font-sans font-bold text-2xl text-resty-stone mb-4">
                 La forza di unire due mondi diversi
               </h3>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed mb-6">

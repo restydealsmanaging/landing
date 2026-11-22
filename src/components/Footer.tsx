@@ -32,7 +32,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+            <h4 className="font-sans font-semibold text-xs uppercase tracking-wider text-white/90 mb-4">
               Navigazione
             </h4>
             <ul className="space-y-2.5 text-sm text-stone-300">
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Direct Actions */}
           <div className="md:col-span-3">
-            <h4 className="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+            <h4 className="font-sans font-semibold text-xs uppercase tracking-wider text-white/90 mb-4">
               Partecipa
             </h4>
             <div className="flex flex-col gap-2.5">
