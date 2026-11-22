@@ -72,7 +72,7 @@ export default function CustomerSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
             Per chi va al ristorante
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-resty-stone tracking-tight mb-6">
+          <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-6 leading-[1.12]">
             Stessa qualità, <br />
             <span className="text-resty-orange">prezzo in promozione.</span>
           </h2>
@@ -99,7 +99,7 @@ export default function CustomerSection() {
                   <div className="w-12 h-12 rounded-2xl bg-resty-peach/60 flex items-center justify-center text-resty-orange mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-resty-stone mb-3 leading-snug">
+                  <h3 className="font-sans font-bold text-lg text-resty-stone mb-3 leading-snug">
                     {adv.title}
                   </h3>
                   <p className="text-sm text-resty-stone-light leading-relaxed mb-6">
@@ -125,7 +125,7 @@ export default function CustomerSection() {
               <BellRing className="w-7 h-7" />
             </div>
 
-            <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-resty-stone mb-3">
+            <h3 className="font-sans font-bold text-2xl sm:text-3xl text-resty-stone mb-3">
               Avvisami al lancio
             </h3>
             <p className="text-base text-resty-stone-light mb-8 max-w-lg mx-auto">
@@ -135,7 +135,7 @@ export default function CustomerSection() {
             {submitted ? (
               <div className="p-6 rounded-2xl bg-resty-green-soft border border-resty-green/20 text-center animate-in fade-in duration-200">
                 <CheckCircle2 className="w-10 h-10 text-resty-green mx-auto mb-2" />
-                <h4 className="font-heading font-bold text-lg text-resty-stone mb-1">
+                <h4 className="font-sans font-bold text-lg text-resty-stone mb-1">
                   Sei nella lista d&apos;attesa!
                 </h4>
                 <p className="text-sm text-resty-stone-light">

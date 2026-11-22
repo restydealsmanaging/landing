@@ -23,7 +23,7 @@ export default function ClientiPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Esperienza al Tavolo · Zero Spreco</span>
               </div>
-              <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.1]">
+              <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
                 Stessa qualità, <br />
                 <span className="text-resty-orange">prezzo in promozione.</span>
               </h1>
@@ -54,7 +54,7 @@ export default function ClientiPage() {
         <section className="py-16 bg-white border-t border-resty-stone-border/60">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h3 className="font-heading font-bold text-2xl sm:text-3xl text-resty-stone mb-3">
+              <h3 className="font-sans font-bold text-2xl sm:text-3xl text-resty-stone mb-3">
                 Non una busta da asporto, ma una vera cena
               </h3>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed">
@@ -67,7 +67,7 @@ export default function ClientiPage() {
                 <div className="w-10 h-10 rounded-xl bg-resty-peach flex items-center justify-center text-resty-orange font-bold mb-4">
                   01
                 </div>
-                <h4 className="font-heading font-bold text-base text-resty-stone mb-2">
+                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
                   Sai esattamente cosa mangi
                 </h4>
                 <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed">
@@ -79,7 +79,7 @@ export default function ClientiPage() {
                 <div className="w-10 h-10 rounded-xl bg-resty-peach flex items-center justify-center text-resty-orange font-bold mb-4">
                   02
                 </div>
-                <h4 className="font-heading font-bold text-base text-resty-stone mb-2">
+                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
                   Cucinato al momento
                 </h4>
                 <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed">
@@ -91,7 +91,7 @@ export default function ClientiPage() {
                 <div className="w-10 h-10 rounded-xl bg-resty-peach flex items-center justify-center text-resty-orange font-bold mb-4">
                   03
                 </div>
-                <h4 className="font-heading font-bold text-base text-resty-stone mb-2">
+                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
                   Un prezzo che invoglia
                 </h4>
                 <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed">

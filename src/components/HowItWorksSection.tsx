@@ -91,7 +91,7 @@ export default function HowItWorksSection() {
             }}
             className="absolute max-w-4xl mx-auto text-center px-4 will-change-[transform,opacity]"
           >
-            <h2 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.12]">
+            <h2 className="font-heading font-medium text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.12]">
               Il ristorante sceglie. <br className="hidden sm:inline" />
               <span className="text-resty-orange">Tu gusti in sala.</span>
             </h2>
@@ -109,7 +109,7 @@ export default function HowItWorksSection() {
           >
             {/* Header Above Cards: Cleanly centered with ample top clearance */}
             <div className="text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl mx-auto">
-              <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-tight mb-2 sm:mb-3">
+              <h2 className="font-heading font-medium text-2xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-tight mb-2 sm:mb-3">
                 Come funziona
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-resty-stone-light font-sans font-normal leading-relaxed max-w-2xl mx-auto">
@@ -129,7 +129,7 @@ export default function HowItWorksSection() {
                     <div>
                       {/* Top Bar with Number and Badge */}
                       <div className="flex items-center justify-between mb-3 sm:mb-4">
-                        <span className="font-heading font-black text-xl sm:text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
+                        <span className="font-sans font-black text-xl sm:text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
                           {step.number}
                         </span>
                         <span className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
@@ -143,7 +143,7 @@ export default function HowItWorksSection() {
                       </div>
 
                       {/* Title & Description */}
-                      <h3 className="font-heading font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
+                      <h3 className="font-sans font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
                         {step.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">

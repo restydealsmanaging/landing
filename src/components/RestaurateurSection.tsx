@@ -78,7 +78,7 @@ export default function RestaurateurSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
             Per i Ristoratori
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-resty-stone tracking-tight mb-6">
+          <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-6 leading-[1.12]">
             Dai più valore al tuo menù.
           </h2>
           <div className="text-lg sm:text-xl text-resty-stone font-medium mb-3">
@@ -104,7 +104,7 @@ export default function RestaurateurSection() {
                   <div className="w-12 h-12 rounded-2xl bg-resty-sand flex items-center justify-center text-resty-orange mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-resty-stone mb-3 leading-snug">
+                  <h3 className="font-sans font-bold text-lg text-resty-stone mb-3 leading-snug">
                     {adv.title}
                   </h3>
                   <p className="text-sm text-resty-stone-light leading-relaxed mb-6">
@@ -135,7 +135,7 @@ export default function RestaurateurSection() {
                 <Store className="w-3.5 h-3.5" />
                 <span>Test Pilota Gratuito</span>
               </div>
-              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-3">
+              <h3 className="font-sans font-bold text-2xl sm:text-3xl text-white mb-3">
                 Partecipa al test
               </h3>
               <p className="text-base text-stone-300 leading-relaxed mb-6">
@@ -151,7 +151,7 @@ export default function RestaurateurSection() {
                   <div className="w-16 h-16 rounded-full bg-resty-green-soft text-resty-green mx-auto flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="font-heading font-bold text-2xl text-resty-stone mb-2">
+                  <h4 className="font-sans font-bold text-2xl text-resty-stone mb-2">
                     Candidatura inviata con successo!
                   </h4>
                   <p className="text-sm text-resty-stone-light max-w-md mx-auto mb-6">

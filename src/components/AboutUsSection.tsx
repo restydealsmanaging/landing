@@ -59,7 +59,7 @@ export default function AboutUsSection() {
             <div className="bg-white rounded-3xl p-7 border border-resty-stone-border/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200/60 font-heading font-black text-lg">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200/60 font-sans font-black text-lg">
                     <Utensils className="w-6 h-6" />
                   </div>
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100/70 text-amber-800">
@@ -67,7 +67,7 @@ export default function AboutUsSection() {
                   </span>
                 </div>
 
-                <h4 className="font-heading font-bold text-xl text-resty-stone mb-1">
+                <h4 className="font-sans font-bold text-xl text-resty-stone mb-1">
                   Emanuele
                 </h4>
                 <div className="text-xs font-semibold text-resty-orange mb-4">
@@ -90,7 +90,7 @@ export default function AboutUsSection() {
             <div className="bg-white rounded-3xl p-7 border border-resty-stone-border/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-resty-blue flex items-center justify-center border border-blue-200/60 font-heading font-black text-lg">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-resty-blue flex items-center justify-center border border-blue-200/60 font-sans font-black text-lg">
                     <Laptop className="w-6 h-6" />
                   </div>
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100/70 text-resty-blue-dark">
@@ -98,7 +98,7 @@ export default function AboutUsSection() {
                   </span>
                 </div>
 
-                <h4 className="font-heading font-bold text-xl text-resty-stone mb-1">
+                <h4 className="font-sans font-bold text-xl text-resty-stone mb-1">
                   Matteo
                 </h4>
                 <div className="text-xs font-semibold text-resty-orange mb-4">

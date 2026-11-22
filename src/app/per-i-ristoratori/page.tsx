@@ -23,7 +23,7 @@ export default function RistoratoriPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Programma Pilota Gratuito · Provincia di Varese</span>
               </div>
-              <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.1]">
+              <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
                 Dai più valore <br />
                 <span className="text-resty-orange">al tuo menù.</span>
               </h1>
@@ -53,12 +53,12 @@ export default function RistoratoriPage() {
         {/* Extra FAQ for Restaurateurs */}
         <section className="py-16 bg-white border-t border-resty-stone-border/60">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="font-heading font-bold text-2xl text-resty-stone mb-8 text-center">
+            <h3 className="font-sans font-bold text-2xl text-resty-stone mb-8 text-center">
               Domande tipiche dei ristoratori
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-6 rounded-2xl bg-resty-sand/50 border border-resty-stone-border/60">
-                <h4 className="font-heading font-bold text-base text-resty-stone mb-2">
+                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
                   Come imposto le mie offerte?
                 </h4>
                 <p className="text-sm text-resty-stone-light leading-relaxed">
@@ -66,7 +66,7 @@ export default function RistoratoriPage() {
                 </p>
               </div>
               <div className="p-6 rounded-2xl bg-resty-sand/50 border border-resty-stone-border/60">
-                <h4 className="font-heading font-bold text-base text-resty-stone mb-2">
+                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
                   Cosa succede se il cliente ordina extra?
                 </h4>
                 <p className="text-sm text-resty-stone-light leading-relaxed">

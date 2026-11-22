@@ -23,7 +23,7 @@ export default function ChiSiamoPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>La Nostra Storia · Provincia di Varese</span>
               </div>
-              <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.1]">
+              <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
                 Due ragazzi della <br />
                 <span className="text-resty-orange">provincia di Varese.</span>
               </h1>
@@ -43,7 +43,7 @@ export default function ChiSiamoPage() {
             <div className="w-14 h-14 rounded-2xl bg-resty-peach flex items-center justify-center text-resty-orange mx-auto mb-5">
               <Coffee className="w-7 h-7" />
             </div>
-            <h3 className="font-heading font-bold text-2xl sm:text-3xl text-resty-stone mb-3">
+            <h3 className="font-sans font-bold text-2xl sm:text-3xl text-resty-stone mb-3">
               Prendiamoci un caffè a Varese
             </h3>
             <p className="text-base text-resty-stone-light leading-relaxed mb-6 max-w-xl mx-auto">
