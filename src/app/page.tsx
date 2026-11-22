@@ -1,9 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import RestaurateurSection from "@/components/RestaurateurSection";
-import CustomerSection from "@/components/CustomerSection";
-import AboutUsSection from "@/components/AboutUsSection";
+import AudiencePathsSection from "@/components/AudiencePathsSection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 
@@ -14,9 +12,7 @@ export default function LandingPage() {
       <main className="flex-1">
         <HeroSection />
         <HowItWorksSection />
-        <RestaurateurSection />
-        <CustomerSection />
-        <AboutUsSection />
+        <AudiencePathsSection />
         <FaqSection />
       </main>
       <Footer />

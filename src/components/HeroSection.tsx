@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, Clock, MapPin, Sparkles, Utensils, ShieldCheck, Flame } from "lucide-react";
 
 export default function HeroSection() {
@@ -35,20 +36,20 @@ export default function HeroSection() {
 
             {/* Pulsanti di apertura (Dual CTAs) */}
             <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
-              <a
-                href="#candidatura-ristoratore"
+              <Link
+                href="/per-i-ristoratori#candidatura-ristoratore"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-resty-orange text-white font-semibold text-base shadow-md hover:bg-resty-orange-hover hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-center"
               >
                 <span>Per i ristoratori · Partecipa al test</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
-              <a
-                href="#avvisami-lancio"
+              <Link
+                href="/per-i-clienti#avvisami-lancio"
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-resty-sand border border-resty-stone-border text-resty-stone font-semibold text-base hover:bg-resty-sand-card hover:border-resty-stone-muted/40 transition-all text-center"
               >
                 <span>Per i clienti · Avvisami al lancio</span>
-              </a>
+              </Link>
             </div>
 
             {/* Titoli alternativi & Payoff pill from doc */}

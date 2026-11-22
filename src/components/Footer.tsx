@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { UtensilsCrossed, ArrowUp, Heart } from "lucide-react";
 
 export default function Footer() {
@@ -36,29 +37,29 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm text-stone-300">
               <li>
-                <a href="#come-funziona" className="hover:text-resty-orange transition-colors">
+                <Link href="/#come-funziona" className="hover:text-resty-orange transition-colors">
                   Come funziona
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#per-i-ristoratori" className="hover:text-resty-orange transition-colors">
+                <Link href="/per-i-ristoratori" className="hover:text-resty-orange transition-colors">
                   Per i ristoratori
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#per-i-clienti" className="hover:text-resty-orange transition-colors">
+                <Link href="/per-i-clienti" className="hover:text-resty-orange transition-colors">
                   Per i clienti
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#chi-siamo" className="hover:text-resty-orange transition-colors">
+                <Link href="/chi-siamo" className="hover:text-resty-orange transition-colors">
                   Chi siamo
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-resty-orange transition-colors">
+                <Link href="/#faq" className="hover:text-resty-orange transition-colors">
                   Domande frequenti
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,18 +70,18 @@ export default function Footer() {
               Partecipa
             </h4>
             <div className="flex flex-col gap-2.5">
-              <a
-                href="#candidatura-ristoratore"
+              <Link
+                href="/per-i-ristoratori#candidatura-ristoratore"
                 className="text-xs font-semibold px-4 py-2.5 rounded-xl bg-resty-orange text-white hover:bg-resty-orange-hover text-center transition-colors"
               >
                 Candidatura Ristoranti
-              </a>
-              <a
-                href="#avvisami-lancio"
+              </Link>
+              <Link
+                href="/per-i-clienti#avvisami-lancio"
                 className="text-xs font-semibold px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-center transition-colors"
               >
                 Waitlist Clienti
-              </a>
+              </Link>
             </div>
           </div>
         </div>
