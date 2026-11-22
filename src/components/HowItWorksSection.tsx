@@ -106,11 +106,14 @@ export default function HowItWorksSection() {
             }}
             className="w-full max-w-6xl mx-auto will-change-[transform,opacity]"
           >
-            {/* Header Badge Above Cards */}
-            <div className="text-center mb-8 sm:mb-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-wider text-resty-stone-light bg-white/80 px-4 py-1.5 rounded-full border border-resty-stone/10 shadow-2xs">
-                Come Funziona · 3 Semplici Passaggi
-              </span>
+            {/* Header Above Cards */}
+            <div className="text-center mb-10 sm:mb-14 max-w-3xl mx-auto">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-tight mb-4">
+                Come funziona
+              </h2>
+              <p className="text-base sm:text-lg text-resty-stone-light font-sans font-normal leading-relaxed">
+                Il locale decide quali piatti proporre, a quale prezzo e in quali orari. Tu consulti l&apos;offerta e gusti il piatto nel ristorante, con la qualità e il servizio di sempre.
+              </p>
             </div>
 
             {/* 3 Step Cards Grid */}
