@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading-font), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
 
   --color-resty-ivory: #FDFCF8;

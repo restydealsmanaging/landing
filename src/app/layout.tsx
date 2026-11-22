@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Syne, Lexend } from "next/font/google";
+import { Plus_Jakarta_Sans, Lexend } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const headingFont = Plus_Jakarta_Sans({
+  variable: "--font-heading-font",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`${syne.variable} ${lexend.variable}`}>
+    <html lang="it" className={`${headingFont.variable} ${lexend.variable}`}>
       <body className="min-h-screen bg-resty-ivory text-resty-stone font-sans selection:bg-resty-orange selection:text-white">
         {children}
       </body>
