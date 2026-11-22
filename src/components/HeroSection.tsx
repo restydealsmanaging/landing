@@ -1,24 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   Clock,
-  UtensilsCrossed,
   Users,
-  Minus,
-  Plus,
   MapPin,
   Check,
 } from "lucide-react";
 
 export default function HeroSection() {
-  const [quantity, setQuantity] = useState(1);
-  const unitPrice = 11.5;
-  const originalPrice = 18.0;
+  const unitPrice = "11,50";
+  const originalPrice = "18,00";
   const discountPercent = 36;
-  const totalDisplay = (unitPrice * quantity).toFixed(2).replace(".", ",");
   return (
     <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
       {/* Decorative subtle ambient lights */}
@@ -135,66 +129,34 @@ export default function HeroSection() {
                     </p>
                   </div>
 
-                  {/* Pricing & Stepper Row */}
-                  <div className="flex items-end justify-between gap-3 mb-4">
-                    <div>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-xs text-gray-400 line-through font-sans">
-                          {(originalPrice * quantity).toFixed(2).replace(".", ",")} €
-                        </span>
-                        <span className="text-[10px] font-bold text-resty-green bg-green-50 text-green-700 px-1.5 py-0.5 rounded">
-                          Risparmi {((originalPrice - unitPrice) * quantity).toFixed(2).replace(".", ",")} €
-                        </span>
-                      </div>
-                      <div className="font-heading text-2xl font-extrabold text-resty-stone mt-0.5">
-                        {totalDisplay} €
-                        {quantity > 1 && (
-                          <span className="font-sans text-xs text-resty-stone-muted font-normal ml-1">
-                            ({unitPrice.toFixed(2).replace(".", ",")} €/pz)
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Quantity Stepper */}
-                    <div className="flex flex-col items-end gap-1">
-                      <span className="text-[10px] text-resty-stone-muted uppercase font-sans tracking-wider">
-                        Quantità
+                  {/* Centered Pricing Block */}
+                  <div className="flex flex-col items-center justify-center text-center my-2 p-3.5 rounded-2xl bg-resty-sand/50 border border-resty-stone/5">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-xs text-gray-400 line-through font-sans">
+                        {originalPrice} €
                       </span>
-                      <div className="flex items-center gap-1 bg-resty-sand/70 p-1 rounded-xl border border-resty-stone/10">
-                        <button
-                          type="button"
-                          onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                          disabled={quantity <= 1}
-                          aria-label="Diminuisci quantità"
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-resty-stone hover:bg-resty-stone/5 disabled:opacity-30 transition-colors shadow-2xs cursor-pointer disabled:cursor-not-allowed"
-                        >
-                          <Minus size={13} strokeWidth={2} />
-                        </button>
-                        <span className="font-sans text-xs font-bold text-resty-stone tabular-nums min-w-[2ch] text-center">
-                          {quantity}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setQuantity((q) => Math.min(3, q + 1))}
-                          disabled={quantity >= 3}
-                          aria-label="Aumenta quantità"
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-resty-stone hover:bg-resty-stone/5 disabled:opacity-30 transition-colors shadow-2xs cursor-pointer disabled:cursor-not-allowed"
-                        >
-                          <Plus size={13} strokeWidth={2} />
-                        </button>
-                      </div>
+                      <span className="text-[11px] font-bold text-resty-green bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                        Risparmi 6,50 € (-{discountPercent}%)
+                      </span>
                     </div>
+                    <div className="font-heading text-3xl font-extrabold text-resty-stone">
+                      {unitPrice} €
+                    </div>
+                    <span className="text-[11px] text-resty-stone-muted font-sans mt-0.5">
+                      Prezzo promozionale per il piatto
+                    </span>
                   </div>
 
-                  {/* Action Link Button */}
-                  <Link
-                    href="/per-i-clienti#avvisami-lancio"
-                    className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-resty-stone hover:bg-resty-orange text-white px-5 py-2.5 font-sans text-sm font-semibold transition-all duration-200 shadow-md cursor-pointer text-center group/btn"
+                  {/* Action Link Button leading to RestyDeals Web App */}
+                  <a
+                    href="https://resty-deals.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-resty-stone hover:bg-resty-orange text-white px-5 py-2.5 font-sans text-sm font-semibold transition-all duration-200 shadow-md cursor-pointer text-center group/btn mt-2"
                   >
-                    <span>Prenota al tavolo (anteprima)</span>
+                    <span>Prenota al tavolo</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </div>
               </article>
 
