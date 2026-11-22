@@ -14,7 +14,7 @@ export default function HeroSection() {
   const originalPrice = "18,00";
   const discountPercent = 36;
   return (
-    <section className="relative z-10 overflow-x-clip pt-12 pb-24 md:pt-20 md:pb-40">
+    <section className="relative z-10 overflow-x-clip pt-12 pb-16 md:pt-20 md:pb-24">
       {/* Decorative subtle ambient lights */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(221,87,28,0.12)_0%,transparent_70%)] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-[radial-gradient(circle_at_center,rgba(22,163,74,0.08)_0%,transparent_70%)] rounded-full pointer-events-none -z-10" />
