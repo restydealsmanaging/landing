@@ -1,30 +1,54 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [stage, setStage] = useState<1 | 2>(1);
+  const stageRef = useRef<1 | 2>(1);
 
-  // Track scroll position through the section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-  // Smooth spatial curtain overlay rising over the hero (GPU composited)
-  const panelTranslateY = useTransform(scrollYProgress, [0, 0.12], ["15%", "0%"]);
+    let cachedTop = 0;
+    let cachedScrollable = 1;
 
-  // Decoupled stage controller with hysteresis to prevent any boundary flickering
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= 0.38 && stage !== 2) {
-      setStage(2);
-    } else if (latest < 0.30 && stage !== 1) {
-      setStage(1);
-    }
-  });
+    const measure = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      cachedTop = rect.top + window.scrollY;
+      cachedScrollable = Math.max(containerRef.current.offsetHeight - window.innerHeight, 1);
+    };
+
+    const onScroll = () => {
+      const scrolled = window.scrollY - cachedTop;
+      const progress = scrolled / cachedScrollable;
+
+      // Hysteresis thresholds prevent boundary flicker
+      if (progress >= 0.36 && stageRef.current !== 2) {
+        stageRef.current = 2;
+        setStage(2);
+      } else if (progress < 0.26 && stageRef.current !== 1) {
+        stageRef.current = 1;
+        setStage(1);
+      }
+    };
+
+    measure();
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", measure, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
+  const isStage1 = stage === 1;
+  const isStage2 = stage === 2;
 
   const steps = [
     {
@@ -34,7 +58,7 @@ export default function HowItWorksSection() {
       title: "Il ristorante sceglie cosa e quando",
       description:
         "Il locale decide quali piatti proporre, a quale prezzo promozionale e in quali fasce orarie meno affollate, valorizzando gli ingredienti freschi già presenti in cucina.",
-      delay: 0.22,
+      delayClass: "delay-[140ms]",
     },
     {
       number: "02",
@@ -43,7 +67,7 @@ export default function HowItWorksSection() {
       title: "Tu consulti e blocchi l'offerta",
       description:
         "Scopri le proposte del giorno vicino a te, verifichi in anteprima il piatto, l'orario e il prezzo esatto. Sai quanto spendi prima ancora di uscire di casa.",
-      delay: 0.32,
+      delayClass: "delay-[220ms]",
     },
     {
       number: "03",
@@ -52,7 +76,7 @@ export default function HowItWorksSection() {
       title: "Gusti il piatto direttamente in sala",
       description:
         "Niente asporto frettoloso o contenitori freddi: ti accomodi al tavolo del ristorante e gusti il piatto con l'accoglienza, la qualità e il servizio di sempre.",
-      delay: 0.42,
+      delayClass: "delay-[300ms]",
     },
   ];
 
@@ -60,123 +84,107 @@ export default function HowItWorksSection() {
     <div
       ref={containerRef}
       id="come-funziona"
-      className="relative h-[220vh] -mt-14 sm:-mt-20 md:-mt-24 pointer-events-auto"
+      className="relative h-[215vh] -mt-10 sm:-mt-14 pointer-events-auto"
     >
-      {/* Sticky Full-Viewport Stage */}
+      {/* Sticky Full-Viewport Stage — rises natively on the GPU Compositor Thread */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-end pointer-events-none">
-        {/* Full-width Dark Beige Overlay Sheet (#EFE6D8) */}
-        <motion.div
-          style={{ y: panelTranslateY }}
-          className="relative w-full h-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/15 shadow-xl overflow-hidden pointer-events-auto transform-gpu"
-        >
+        <div className="relative w-full h-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/15 shadow-[0_-16px_40px_rgba(45,45,42,0.10)] overflow-hidden pointer-events-auto isolate">
           {/* ─────────────────────────────────────────────────────────────
               STAGE 1: "Il ristorante sceglie. Tu gusti in sala."
-              Animated with independent 60/120fps clock (NEVER scrubbed to mouse clicks!)
+              100% Off-Thread CSS Compositor Transitions (transform + opacity)
              ───────────────────────────────────────────────────────────── */}
-          <motion.div
-            initial={false}
-            animate={
-              stage === 1
-                ? { opacity: 1, y: 0, pointerEvents: "auto" }
-                : { opacity: 0, y: -45, pointerEvents: "none" }
-            }
-            transition={{
-              duration: stage === 1 ? 0.65 : 0.35,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center transform-gpu"
+          <div
+            aria-hidden={!isStage1}
+            className={`absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center transition-[transform,opacity] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isStage1
+                ? "opacity-100 translate-y-0 duration-600 pointer-events-auto"
+                : "opacity-0 -translate-y-10 duration-350 pointer-events-none"
+            }`}
           >
             <div className="max-w-4xl mx-auto">
               {/* Line 1: Il ristorante sceglie. */}
-              <motion.div
-                initial={false}
-                animate={stage === 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden"
+              <div
+                className={`transition-[transform,opacity] duration-550 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isStage1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
+                }`}
               >
                 <h2 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.12]">
                   Il ristorante sceglie.
                 </h2>
-              </motion.div>
+              </div>
 
-              {/* Line 2: Tu gusti in sala. (Rythmic entry with warm Resty orange) */}
-              <motion.div
-                initial={false}
-                animate={stage === 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden mt-1 sm:mt-2"
+              {/* Line 2: Tu gusti in sala. */}
+              <div
+                className={`mt-1 sm:mt-2 transition-[transform,opacity] duration-550 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isStage1
+                    ? "opacity-100 translate-y-0 delay-[90ms]"
+                    : "opacity-0 -translate-y-5 delay-0"
+                }`}
               >
                 <h2 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-resty-orange tracking-tight leading-[1.12]">
                   Tu gusti in sala.
                 </h2>
-              </motion.div>
+              </div>
 
               {/* Accent Underline */}
-              <motion.div
-                initial={false}
-                animate={stage === 1 ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-                transition={{ duration: 0.55, delay: 0.22, ease: "easeOut" }}
-                className="w-16 h-1 rounded-full bg-resty-orange/40 mx-auto mt-6 sm:mt-8 origin-center"
+              <div
+                className={`w-16 h-1 rounded-full bg-resty-orange/40 mx-auto mt-6 sm:mt-8 origin-center transition-[transform,opacity] duration-500 ease-out ${
+                  isStage1
+                    ? "opacity-100 scale-x-100 delay-[160ms]"
+                    : "opacity-0 scale-x-0 delay-0"
+                }`}
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* ─────────────────────────────────────────────────────────────
               STAGE 2: "Come funziona" Header & 3 Cards
-              Smooth animated entry on its own 120fps curve (Zero stutter!)
+              100% Off-Thread CSS Compositor Transitions (Zero Main-Thread rAF)
              ───────────────────────────────────────────────────────────── */}
-          <motion.div
-            initial={false}
-            animate={
-              stage === 2
-                ? { opacity: 1, y: 0, pointerEvents: "auto" }
-                : { opacity: 0, y: 35, pointerEvents: "none" }
-            }
-            transition={{
-              duration: stage === 2 ? 0.65 : 0.35,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 transform-gpu"
+          <div
+            aria-hidden={!isStage2}
+            className={`absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 transition-[transform,opacity] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isStage2
+                ? "opacity-100 translate-y-0 duration-600 pointer-events-auto"
+                : "opacity-0 translate-y-8 duration-350 pointer-events-none"
+            }`}
           >
             <div className="w-full max-w-6xl mx-auto">
-              {/* Header Above Cards: Animated Title and Subtitle */}
+              {/* Header Above Cards */}
               <div className="text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl mx-auto">
-                {/* Title: Come funziona */}
-                <motion.h2
-                  initial={false}
-                  animate={stage === 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-                  transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-tight mb-2 sm:mb-3"
+                <h2
+                  className={`font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-tight mb-2 sm:mb-3 transition-[transform,opacity] duration-550 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isStage2
+                      ? "opacity-100 translate-y-0 delay-[50ms]"
+                      : "opacity-0 translate-y-5 delay-0"
+                  }`}
                 >
                   Come funziona
-                </motion.h2>
+                </h2>
 
-                {/* Subtitle Paragraph */}
-                <motion.p
-                  initial={false}
-                  animate={stage === 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-xs sm:text-sm md:text-base text-resty-stone-light font-sans font-normal leading-relaxed max-w-2xl mx-auto"
+                <p
+                  className={`text-xs sm:text-sm md:text-base text-resty-stone-light font-sans font-normal leading-relaxed max-w-2xl mx-auto transition-[transform,opacity] duration-550 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isStage2
+                      ? "opacity-100 translate-y-0 delay-[100ms]"
+                      : "opacity-0 translate-y-4 delay-0"
+                  }`}
                 >
                   Il locale decide quali piatti proporre, a quale prezzo e in quali orari. Tu consulti l&apos;offerta e gusti il piatto nel ristorante, con la qualità e il servizio di sempre.
-                </motion.p>
+                </p>
               </div>
 
-              {/* 3 Step Cards Grid: Staggered Entrance Wave (01 -> 02 -> 03) */}
+              {/* 3 Step Cards Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 {steps.map((step) => {
                   const Icon = step.icon;
                   return (
-                    <motion.div
+                    <div
                       key={step.number}
-                      initial={false}
-                      animate={stage === 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: step.delay,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                      className="group relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-[transform,box-shadow] duration-300 flex flex-col justify-between"
+                      className={`group relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-[transform,opacity,box-shadow] duration-550 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between ${
+                        isStage2
+                          ? `opacity-100 translate-y-0 ${step.delayClass}`
+                          : "opacity-0 translate-y-6 delay-0"
+                      }`}
                     >
                       <div>
                         {/* Top Bar with Number and Badge */}
@@ -195,7 +203,7 @@ export default function HowItWorksSection() {
                         </div>
 
                         {/* Title & Description */}
-                        <h3 className="font-heading font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
+                        <h3 className="font-sans font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
                           {step.title}
                         </h3>
                         <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
@@ -207,13 +215,13 @@ export default function HowItWorksSection() {
                         <span>Passo {step.number} del percorso</span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );
