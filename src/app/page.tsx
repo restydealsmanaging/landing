@@ -10,8 +10,18 @@ export default function LandingPage() {
     <div className="min-h-screen flex flex-col bg-resty-ivory text-resty-stone selection:bg-resty-orange selection:text-white">
       <Navbar />
       <main className="flex-1">
-        <HeroSection />
-        <HowItWorksSection />
+        <div className="relative">
+          {/* Pinned Hero Section: Remains pinned beneath the incoming overlay */}
+          <div className="sticky top-20 z-0">
+            <HeroSection />
+          </div>
+
+          {/* Full-width warm beige overlay sheet climbing smoothly over the Hero */}
+          <div className="relative z-20">
+            <HowItWorksSection />
+          </div>
+        </div>
+
         <AudiencePathsSection />
         <FaqSection />
       </main>
