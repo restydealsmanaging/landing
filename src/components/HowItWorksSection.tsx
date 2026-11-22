@@ -33,7 +33,7 @@ export default function HowItWorksSection() {
   return (
     <section
       id="come-funziona"
-      className="relative z-20 w-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/10 shadow-[0_-25px_60px_-15px_rgba(45,45,42,0.12)] -mt-12 sm:-mt-20 pt-20 sm:pt-28 pb-24 md:pb-32"
+      className="relative isolate z-20 w-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/10 shadow-[0_-12px_32px_-8px_rgba(45,45,42,0.08)] -mt-12 sm:-mt-20 pt-20 sm:pt-28 pb-24 md:pb-32"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Full-width Statement Title (Only this sentence, bold and editorial) */}
@@ -51,7 +51,7 @@ export default function HowItWorksSection() {
             return (
               <div
                 key={step.number}
-                className="group relative bg-white rounded-3xl p-8 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl p-8 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-[transform,box-shadow] duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar with Number and Badge */}
@@ -65,7 +65,7 @@ export default function HowItWorksSection() {
                   </div>
 
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-resty-peach/70 text-resty-orange flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-resty-orange group-hover:text-white transition-all">
+                  <div className="w-14 h-14 rounded-2xl bg-resty-peach/70 text-resty-orange flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-resty-orange group-hover:text-white transition-[transform,background-color,color] duration-300">
                     <Icon className="w-7 h-7" />
                   </div>
 

@@ -14,7 +14,7 @@ export default function HeroSection() {
   const originalPrice = "18,00";
   const discountPercent = 36;
   return (
-    <section className="relative z-10 overflow-hidden pt-12 pb-24 md:pt-20 md:pb-40">
+    <section className="relative z-10 overflow-x-clip pt-12 pb-24 md:pt-20 md:pb-40">
       {/* Decorative subtle ambient lights */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(221,87,28,0.12)_0%,transparent_70%)] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-[radial-gradient(circle_at_center,rgba(22,163,74,0.08)_0%,transparent_70%)] rounded-full pointer-events-none -z-10" />
@@ -85,10 +85,12 @@ export default function HeroSection() {
                     src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800"
                     alt="Risotto ai Porcini & Mirtilli delle Prealpi"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="eager"
+                    decoding="async"
                   />
                   {/* Top Floating Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-semibold text-resty-stone shadow-sm">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white text-[11px] font-semibold text-resty-stone shadow-xs">
                       <MapPin size={12} className="text-resty-orange" />
                       Varese · Centro
                     </span>
