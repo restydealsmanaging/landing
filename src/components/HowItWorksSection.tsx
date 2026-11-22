@@ -1,9 +1,37 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight, ArrowDown } from "lucide-react";
 
 export default function HowItWorksSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Immediate fallback: Ensure it's ALWAYS visible even if observer fails
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 400);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
+
   const steps = [
     {
       number: "01",
@@ -33,6 +61,7 @@ export default function HowItWorksSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="come-funziona"
       className="relative z-20 w-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/15 shadow-[0_-30px_80px_rgba(45,45,42,0.22)]"
     >
@@ -40,88 +69,72 @@ export default function HowItWorksSection() {
           STAGE 1: Dedicated Grand Statement Screen (Full Viewport)
           "Il ristorante sceglie. Tu gusti in sala." con effetto cinetico
          ───────────────────────────────────────────────────────────── */}
-      <div className="min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 relative py-20">
+      <div className="min-h-[85vh] md:min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 relative py-16 sm:py-24">
         {/* Subtle decorative glowing aura */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-resty-orange/8 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-resty-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         {/* Small top category tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 border border-resty-stone/10 shadow-2xs mb-8"
+        <div
+          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-resty-stone/10 shadow-2xs mb-8 transition-all duration-700 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
         >
           <span className="w-2 h-2 rounded-full bg-resty-orange animate-pulse" />
           <span className="font-sans text-xs font-bold uppercase tracking-wider text-resty-stone">
             Il Concept RestyDeals
           </span>
-        </motion.div>
+        </div>
 
         {/* Big Punchline with Staggered Entrance Effect */}
         <div className="max-w-4xl mx-auto mb-6">
-          <div className="overflow-hidden pb-2">
-            <motion.h2
-              initial={{ y: "110%", opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.08]"
+          <div className="overflow-hidden pb-1">
+            <h2
+              className={`font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.1] transition-all duration-700 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
             >
               Il ristorante sceglie.
-            </motion.h2>
+            </h2>
           </div>
-          <div className="overflow-hidden pt-1 pb-2">
-            <motion.h2
-              initial={{ y: "110%", opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-resty-orange tracking-tight leading-[1.08]"
+          <div className="overflow-hidden pt-1 pb-1">
+            <h2
+              className={`font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-resty-orange tracking-tight leading-[1.1] transition-all duration-700 delay-150 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
             >
               Tu gusti in sala.
-            </motion.h2>
+            </h2>
           </div>
         </div>
 
         {/* Animated accent underline bar */}
-        <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          whileInView={{ scaleX: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
-          className="w-24 h-1.5 rounded-full bg-resty-orange/50 origin-center mb-8"
+        <div
+          className={`w-28 h-1.5 rounded-full bg-resty-orange/60 origin-center mb-8 transition-all duration-700 delay-300 ease-out ${
+            isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+          }`}
         />
 
         {/* Narrative subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
-          className="max-w-2xl text-base sm:text-xl text-resty-stone-light font-sans font-normal leading-relaxed mb-12"
+        <p
+          className={`max-w-2xl text-base sm:text-xl text-resty-stone-light font-sans font-normal leading-relaxed mb-12 transition-all duration-700 delay-300 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
         >
           Il locale decide quali piatti proporre, a quale prezzo e in quali orari.
           Tu consulti l&apos;offerta e gusti il piatto nel ristorante, con la qualità e il servizio di sempre.
-        </motion.p>
+        </p>
 
         {/* Subtle scroll cue to guide down to the 3 steps */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-wider text-resty-stone-muted"
+        <div
+          className={`flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-wider text-resty-stone-muted transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           <span>I 3 passaggi di RestyDeals</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            className="w-8 h-8 rounded-full bg-white/70 border border-resty-stone/10 flex items-center justify-center text-resty-orange shadow-xs mt-1"
-          >
+          <div className="w-8 h-8 rounded-full bg-white/80 border border-resty-stone/10 flex items-center justify-center text-resty-orange shadow-xs mt-1 animate-bounce">
             <ArrowDown size={14} />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -129,13 +142,7 @@ export default function HowItWorksSection() {
           "Far posto alla sezione come funziona con le card"
          ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-32 sm:pb-40 border-t border-resty-stone/10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="text-center mb-16 sm:mb-20"
-        >
+        <div className="text-center mb-16 sm:mb-20">
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-resty-stone bg-white/90 px-4 py-1.5 rounded-full border border-resty-stone/10 shadow-2xs mb-4">
             Come Funziona · 3 Semplici Passaggi
           </span>
@@ -145,22 +152,14 @@ export default function HowItWorksSection() {
           <p className="mt-3 text-sm sm:text-base text-resty-stone-light max-w-xl mx-auto font-sans">
             Dalla pubblicazione dell&apos;offerta al tavolo del ristorante, senza asporto e senza scatole misteriose.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <motion.div
+              <div
                 key={step.number}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.65,
-                  delay: index * 0.15,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
                 className="group relative bg-white rounded-3xl p-7 sm:p-9 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
@@ -192,7 +191,7 @@ export default function HowItWorksSection() {
                   <span>Passo {index + 1} del percorso</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
