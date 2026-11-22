@@ -1,8 +1,29 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const steps = [
     {
       number: "01",
@@ -31,21 +52,25 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="come-funziona" className="py-20 md:py-28 bg-resty-sand/50 border-y border-resty-stone-border/60">
+    <section id="come-funziona" className="relative z-20 pb-20 md:pb-28 bg-resty-sand/40 border-b border-resty-stone-border/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-            Come Funziona
+        {/* Floating Statement Card: Overlaps the bottom of the Hero section */}
+        <div
+          ref={cardRef}
+          className="-mt-16 sm:-mt-24 md:-mt-28 mb-16 md:mb-24 relative z-30 flex justify-center"
+        >
+          <div
+            className={`w-full max-w-3xl rounded-3xl bg-white border border-resty-stone-border/80 shadow-[0_20px_60px_-15px_rgba(45,45,42,0.12)] p-8 sm:p-12 lg:p-14 text-center transition-all duration-700 ease-out ${
+              isVisible
+                ? "translate-y-0 opacity-100 scale-100 shadow-[0_25px_70px_-15px_rgba(45,45,42,0.18)]"
+                : "translate-y-8 opacity-0 scale-[0.97]"
+            }`}
+          >
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-[1.18]">
+              Il ristorante sceglie. <br className="hidden sm:inline" />
+              <span className="text-resty-orange">Tu gusti in sala.</span>
+            </h2>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
-            Il ristorante sceglie. <span className="text-resty-orange">Tu gusti in sala.</span>
-          </h2>
-          <p className="text-base sm:text-lg text-resty-stone-light leading-relaxed">
-            Il locale decide quali piatti proporre, a quale prezzo e in quali orari.
-            Tu consulti l&apos;offerta e gusti il piatto nel ristorante, con la qualità
-            e il servizio di sempre.
-          </p>
         </div>
 
         {/* 3 Step Cards Grid */}
