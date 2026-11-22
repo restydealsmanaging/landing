@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-heading: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+
+  --color-resty-ivory: #FDFCF8;
+  --color-resty-stone: #2D2D2A;
+  --color-resty-stone-light: #52524D;
+  --color-resty-stone-muted: #82827A;
+  --color-resty-stone-border: #E5E1D6;
+  
+  --color-resty-orange: #FF6B35;
+  --color-resty-orange-hover: #E85923;
+  --color-resty-orange-light: #FF8F66;
+  --color-resty-orange-dark: #B43D0F;
+  --color-resty-orange-soft: #FFF1EB;
+
+  --color-resty-sand: #F7F4EC;
+  --color-resty-sand-card: #F2ECE0;
+  --color-resty-peach: #FAEDE5;
+
+  --color-resty-green: #16A34A;
+  --color-resty-green-dark: #15803D;
+  --color-resty-green-soft: #F0FDF4;
+
+  --color-resty-blue: #2558D9;
+  --color-resty-blue-dark: #1A43B0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-resty-ivory);
+  color: var(--color-resty-stone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar and subtle selection */
+::selection {
+  background-color: #FF6B35;
+  color: #FFFFFF;
 }
