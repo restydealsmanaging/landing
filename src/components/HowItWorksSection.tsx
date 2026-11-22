@@ -1,29 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const steps = [
     {
       number: "01",
@@ -52,35 +31,27 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="come-funziona" className="relative z-20 pb-20 md:pb-28 bg-resty-sand/40 border-b border-resty-stone-border/60">
+    <section
+      id="come-funziona"
+      className="relative z-20 w-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/10 shadow-[0_-25px_60px_-15px_rgba(45,45,42,0.12)] -mt-12 sm:-mt-20 pt-20 sm:pt-28 pb-24 md:pb-32"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Floating Statement Card: Overlaps the bottom of the Hero section */}
-        <div
-          ref={cardRef}
-          className="-mt-16 sm:-mt-24 md:-mt-28 mb-16 md:mb-24 relative z-30 flex justify-center"
-        >
-          <div
-            className={`w-full max-w-3xl rounded-3xl bg-white border border-resty-stone-border/80 shadow-[0_20px_60px_-15px_rgba(45,45,42,0.12)] p-8 sm:p-12 lg:p-14 text-center transition-all duration-700 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100 scale-100 shadow-[0_25px_70px_-15px_rgba(45,45,42,0.18)]"
-                : "translate-y-8 opacity-0 scale-[0.97]"
-            }`}
-          >
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-resty-stone tracking-tight leading-[1.18]">
-              Il ristorante sceglie. <br className="hidden sm:inline" />
-              <span className="text-resty-orange">Tu gusti in sala.</span>
-            </h2>
-          </div>
+        {/* Full-width Statement Title (Only this sentence, bold and editorial) */}
+        <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-24">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-[1.12]">
+            Il ristorante sceglie. <br className="hidden sm:inline" />
+            <span className="text-resty-orange">Tu gusti in sala.</span>
+          </h2>
         </div>
 
-        {/* 3 Step Cards Grid */}
+        {/* 3 Step Cards on White resting on the darker beige canvas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.number}
-                className="group relative bg-white rounded-3xl p-8 border border-resty-stone-border/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl p-8 border border-resty-stone-border/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar with Number and Badge */}
@@ -102,7 +73,7 @@ export default function HowItWorksSection() {
                   <h3 className="font-heading font-bold text-xl text-resty-stone mb-3 leading-snug">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-resty-stone-light leading-relaxed">
+                  <p className="text-sm text-resty-stone-light leading-relaxed font-sans">
                     {step.description}
                   </p>
                 </div>
