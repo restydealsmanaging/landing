@@ -129,22 +129,19 @@ export default function HeroSection() {
                     </p>
                   </div>
 
-                  {/* Centered Pricing Block */}
-                  <div className="flex flex-col items-center justify-center text-center my-2 p-3.5 rounded-2xl bg-resty-sand/50 border border-resty-stone/5">
-                    <div className="flex items-center justify-center gap-2 mb-1">
-                      <span className="text-xs text-gray-400 line-through font-sans">
+                  {/* Centered Pricing Block (Clean style, no box) */}
+                  <div className="text-center py-3">
+                    <div className="flex items-center justify-center gap-2">
+                      <p className="font-sans text-xs text-gray-400 line-through">
                         {originalPrice} €
-                      </span>
-                      <span className="text-[11px] font-bold text-resty-green bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
-                        Risparmi 6,50 € (-{discountPercent}%)
+                      </p>
+                      <span className="bg-resty-orange text-white px-1.5 py-0.5 rounded-md text-[10px] font-sans font-black">
+                        -{discountPercent}%
                       </span>
                     </div>
-                    <div className="font-heading text-3xl font-extrabold text-resty-stone">
-                      {unitPrice} €
-                    </div>
-                    <span className="text-[11px] text-resty-stone-muted font-sans mt-0.5">
-                      Prezzo promozionale per il piatto
-                    </span>
+                    <p className="mt-1 font-sans text-2xl font-bold text-resty-stone">
+                      {unitPrice} € <span className="text-gray-400 text-xs font-normal">/ piatto</span>
+                    </p>
                   </div>
 
                   {/* Action Link Button leading to RestyDeals Web App */}
