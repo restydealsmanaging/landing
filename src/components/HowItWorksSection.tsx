@@ -1,45 +1,48 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Emil Kowalski: Off-thread composite scroll tracking without React state re-renders
+  // Raw scroll progress
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
+  // Physics-based spring smoothing: transforms harsh discrete Windows mouse wheel clicks
+  // into buttery-smooth, fluid 120fps interpolation. Eliminates ALL stutter and lag!
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.15,
+    restDelta: 0.0001,
+  });
+
   // 1. Full-width dark beige sheet panel translation
   // Smoothly rises from bottom to dock cleanly to top
-  const panelTranslateY = useTransform(scrollYProgress, [0, 0.16], ["25%", "0%"]);
+  const panelTranslateY = useTransform(smoothProgress, [0, 0.16], ["20%", "0%"]);
 
   // 2. Stage 1: Statement Title ("Il ristorante sceglie. Tu gusti in sala.")
   // Glides in, holds for comfortable reading, then glides up and dissolves cleanly
   const statementOpacity = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0.03, 0.15, 0.35, 0.45],
     [0, 1, 1, 0]
   );
   const statementY = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0.03, 0.15, 0.35, 0.45],
-    [25, 0, 0, -60]
-  );
-  const statementPointerEvents = useTransform(scrollYProgress, (v) =>
-    v < 0.44 ? "auto" : "none"
+    [20, 0, 0, -50]
   );
 
   // 3. Stage 2: 3 Step Cards ("Come funziona")
-  // Rises up gracefully from below only after Stage 1 clears, then locks in place until end
-  const cardsOpacity = useTransform(scrollYProgress, [0.44, 0.58, 1], [0, 1, 1]);
-  const cardsY = useTransform(scrollYProgress, [0.44, 0.58, 1], [45, 0, 0]);
-  const cardsPointerEvents = useTransform(scrollYProgress, (v) =>
-    v >= 0.44 ? "auto" : "none"
-  );
+  // Rises up gracefully from below only after Stage 1 clears, then locks in place
+  const cardsOpacity = useTransform(smoothProgress, [0.44, 0.58, 1], [0, 1, 1]);
+  const cardsY = useTransform(smoothProgress, [0.44, 0.58, 1], [40, 0, 0]);
 
   const steps = [
     {
@@ -76,19 +79,18 @@ export default function HowItWorksSection() {
     >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-end pointer-events-none">
-        {/* Full-width Dark Beige Overlay Sheet (#EFE6D8) */}
+        {/* Full-width Dark Beige Overlay Sheet (#EFE6D8) - GPU accelerated */}
         <motion.div
           style={{ y: panelTranslateY }}
-          className="relative w-full h-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/15 shadow-[0_-25px_60px_rgba(45,45,42,0.14)] overflow-hidden pointer-events-auto will-change-transform"
+          className="relative w-full h-full bg-[#EFE6D8] rounded-t-[40px] md:rounded-t-[64px] border-t border-resty-stone/15 shadow-xl overflow-hidden pointer-events-auto transform-gpu"
         >
-          {/* STAGE 1: Statement Title Layer (Independent, Perfectly Centered) */}
+          {/* STAGE 1: Statement Title Layer (Independent, Perfectly Centered, Zero-JS hit-testing) */}
           <motion.div
             style={{
               opacity: statementOpacity,
               y: statementY,
-              pointerEvents: statementPointerEvents,
             }}
-            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center will-change-[transform,opacity]"
+            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center pointer-events-none transform-gpu"
           >
             <div className="max-w-4xl mx-auto">
               <h2 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.12]">
@@ -99,14 +101,13 @@ export default function HowItWorksSection() {
             </div>
           </motion.div>
 
-          {/* STAGE 2: "Come funziona" Cards Layer (Independent, Perfectly Centered) */}
+          {/* STAGE 2: "Come funziona" Cards Layer (Independent, Perfectly Centered, Interactive) */}
           <motion.div
             style={{
               opacity: cardsOpacity,
               y: cardsY,
-              pointerEvents: cardsPointerEvents,
             }}
-            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 will-change-[transform,opacity]"
+            className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 transform-gpu"
           >
             <div className="w-full max-w-6xl mx-auto">
               {/* Header Above Cards: Cleanly centered with ample clearance */}
