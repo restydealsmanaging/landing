@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { UtensilsCrossed, Menu, X, ArrowRight, Sparkles } from "lucide-react";
+import { UtensilsCrossed, Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,15 +20,6 @@ export default function Navbar() {
             </span>
           </div>
         </a>
-
-        {/* Status Pill Desktop */}
-        <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-peach/70 border border-resty-orange/20 text-xs font-semibold text-resty-orange-dark">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-resty-orange opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-resty-orange"></span>
-          </span>
-          <span>Fase di Test · Varese</span>
-        </div>
 
         {/* Desktop Links */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-resty-stone-light">
@@ -88,10 +79,6 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-resty-stone-border bg-resty-ivory px-4 pt-3 pb-6 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-resty-peach/70 text-xs font-semibold text-resty-orange-dark w-fit">
-            <Sparkles className="w-3.5 h-3.5 text-resty-orange" />
-            <span>Fase di Test Beta · Provincia di Varese</span>
-          </div>
           <nav className="flex flex-col gap-3 text-base font-medium text-resty-stone pt-2">
             <a
               href="#come-funziona"
