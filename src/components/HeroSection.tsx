@@ -1,9 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Clock, MapPin, Utensils, ShieldCheck, Flame, Check } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  UtensilsCrossed,
+  Users,
+  Minus,
+  Plus,
+  MapPin,
+  Check,
+} from "lucide-react";
 
 export default function HeroSection() {
+  const [quantity, setQuantity] = useState(1);
+  const unitPrice = 11.5;
+  const originalPrice = 18.0;
+  const discountPercent = 36;
+  const totalDisplay = (unitPrice * quantity).toFixed(2).replace(".", ",");
   return (
     <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
       {/* Decorative subtle ambient lights */}
@@ -13,15 +28,15 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          <div className="lg:col-span-6 flex flex-col items-start">
             {/* Main Headline */}
-            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-[1.08] mb-6">
+            <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-[1.12] mb-6">
               Stessa qualità. <br />
               <span className="text-resty-orange">Più valore</span>, a tavola.
             </h1>
 
             {/* Lead description from CEO */}
-            <p className="text-lg sm:text-xl text-resty-stone-light font-normal leading-relaxed mb-8 max-w-2xl">
+            <p className="text-lg sm:text-xl text-resty-stone-light font-normal leading-relaxed mb-8 max-w-2xl font-sans">
               Con RestyDeals scopri le offerte dei ristoranti aderenti e gusti il
               tuo piatto <strong>direttamente nel locale</strong>. Tu paghi un
               prezzo più vantaggioso, il ristoratore può vendere di più nelle ore
@@ -29,7 +44,7 @@ export default function HeroSection() {
             </p>
 
             {/* Pulsanti di apertura (Dual CTAs) */}
-            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
+            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-6 font-sans">
               <Link
                 href="/per-i-ristoratori#candidatura-ristoratore"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-resty-orange text-white font-semibold text-base shadow-md hover:bg-resty-orange-hover hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-center"
@@ -43,118 +58,131 @@ export default function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-resty-sand border border-resty-stone-border text-resty-stone font-semibold text-base hover:bg-resty-sand-card hover:border-resty-stone-muted/40 transition-all text-center"
               >
                 <span>Per i clienti · Avvisami al lancio</span>
+                <ArrowRight className="w-4 h-4 text-resty-stone-muted" />
               </Link>
+            </div>
+
+            {/* Micro-trust indicators under CTAs */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-resty-stone-muted font-sans mb-10">
+              <span className="flex items-center gap-1.5 font-medium text-resty-stone">
+                <Check className="w-3.5 h-3.5 text-resty-green" />
+                Sempre al tavolo (non da asporto)
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-resty-stone">
+                <Check className="w-3.5 h-3.5 text-resty-green" />
+                Cucinato espresso
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-resty-stone">
+                <Check className="w-3.5 h-3.5 text-resty-green" />
+                Zero costi fissi per i ristoranti
+              </span>
             </div>
           </div>
 
           {/* Right Column: Live Interactive Deal Preview Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md relative">
-              {/* Outer card with subtle warm glow */}
-              <div className="rounded-[28px] bg-white border border-resty-stone-border/80 shadow-[0_20px_50px_rgba(28,25,23,0.06)] p-6 sm:p-7 relative transition-all duration-300 hover:shadow-[0_24px_55px_rgba(221,87,28,0.1)]">
-                {/* Header card: Restaurant info & Live indicator */}
-                <div className="flex items-start justify-between gap-3 mb-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-resty-peach border border-resty-orange/15 text-resty-orange flex items-center justify-center font-heading font-semibold text-2xl shadow-xs shrink-0">
-                      R
+          <div className="lg:col-span-6 flex justify-center lg:justify-end">
+            <div className="w-full max-w-xl relative">
+              {/* Outer card styled identically to RestyDeals deal card */}
+              <article className="rounded-2xl md:rounded-3xl bg-white border border-resty-stone/10 shadow-lg shadow-orange-200/20 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 relative transition-all duration-300 hover:shadow-xl hover:shadow-orange-200/30">
+                {/* Left section: Food Photo + Product Metadata */}
+                <div className="flex-1 min-w-0 flex items-start gap-3.5 sm:gap-4">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400"
+                    alt="Risotto ai Porcini & Mirtilli delle Prealpi"
+                    className="h-18 w-18 sm:h-22 sm:w-22 rounded-xl sm:rounded-2xl object-cover border border-resty-stone/10 shrink-0 shadow-xs"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[11px] sm:text-xs text-resty-stone-muted font-sans truncate mb-0.5">
+                      Trattoria San Giorgio · Centro Storico, Varese
+                    </p>
+                    <h3 className="font-heading font-medium text-base sm:text-lg text-resty-stone leading-tight truncate">
+                      Risotto ai Porcini &amp; Mirtilli delle Prealpi
+                    </h3>
+                    <div className="mt-1 flex items-center gap-2 text-[11px] font-sans uppercase tracking-wider flex-wrap">
+                      <span className="inline-flex items-center gap-1 text-resty-stone">
+                        <UtensilsCrossed size={12} className="text-resty-orange" strokeWidth={1.75} />
+                        PRODOTTO
+                      </span>
+                      <span className="text-resty-stone/20">•</span>
+                      <span className="inline-flex items-center gap-1 text-resty-stone">
+                        <Users size={12} className="text-resty-orange" strokeWidth={1.75} />
+                        1 RIMASTI
+                      </span>
                     </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <h4 className="font-heading font-medium text-base sm:text-lg text-resty-stone leading-tight">
-                          Trattoria San Giorgio
-                        </h4>
-                        <ShieldCheck className="w-4 h-4 text-resty-green shrink-0" />
-                      </div>
-                      <p className="text-xs text-resty-stone-muted flex items-center gap-1 mt-0.5 font-sans">
-                        <MapPin className="w-3.5 h-3.5 text-resty-orange/80 shrink-0" />
-                        Centro Storico · Varese
+                    <div className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-resty-stone">
+                      <span className="inline-block h-2 w-2 rounded-full bg-resty-green shrink-0 animate-pulse" />
+                      <span>Al tavolo · Oggi 19:15 - 20:30</span>
+                    </div>
+                    <span className="text-[10px] text-resty-stone-muted block mt-0.5 font-sans">
+                      Offerta sul piatto (coperto e bevande a parte)
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right section: Transaction & Stepper (Exactly as in RestyDeals) */}
+                <div className="w-full sm:w-[200px] shrink-0 border-t sm:border-t-0 sm:border-l border-resty-stone/10 pt-3 sm:pt-0 sm:pl-5 self-center">
+                  <div className="text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <p className="font-sans text-[11px] text-gray-400 line-through leading-none">
+                        24,00 €
                       </p>
-                    </div>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-resty-green-soft text-resty-green-dark border border-resty-green/20 text-xs font-semibold shadow-xs shrink-0">
-                    <span className="relative flex h-2 w-2 shrink-0">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-resty-green/60 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-resty-green" />
-                    </span>
-                    Offerta attiva
-                  </span>
-                </div>
-
-                {/* Offer visual badge & details */}
-                <div className="rounded-2xl bg-resty-sand p-5 border border-resty-stone-border/70 mb-5 relative overflow-hidden">
-                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-resty-orange mb-2">
-                    <span className="flex items-center gap-1.5">
-                      <Flame className="w-3.5 h-3.5 text-resty-orange shrink-0" />
-                      Piatto del Giorno
-                    </span>
-                    <span className="text-resty-stone-muted font-normal lowercase tracking-normal text-[11px]">
-                      disponibilità limitata
-                    </span>
-                  </div>
-
-                  <h3 className="font-heading font-medium text-xl sm:text-[1.38rem] text-resty-stone mt-2.5 mb-2 leading-snug tracking-tight">
-                    Risotto ai Porcini &amp; Mirtilli delle Prealpi
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-resty-stone-light leading-relaxed mb-4 font-sans">
-                    Preparato espresso con ingredienti freschi di giornata. Stessa
-                    ricetta, porzione completa del menù.
-                  </p>
-
-                  <div className="pt-3.5 border-t border-resty-stone-border/60 flex items-center justify-between gap-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl sm:text-3xl font-heading font-semibold text-resty-orange tracking-tight leading-none">
-                        € 11,50
-                      </span>
-                      <span className="text-sm font-sans line-through text-resty-stone-muted decoration-resty-stone-muted/70">
-                        € 18,00
-                      </span>
-                      <span className="text-xs font-semibold text-resty-green bg-resty-green-soft border border-resty-green/20 px-2 py-0.5 rounded-md">
-                        -36%
+                      <span className="bg-resty-orange text-white px-1.5 py-0.5 rounded-md text-[10px] font-sans font-black leading-none">
+                        -10%
                       </span>
                     </div>
-
-                    <div className="flex items-center gap-1.5 text-xs text-resty-stone font-semibold bg-white px-3 py-1.5 rounded-xl border border-resty-stone-border/80 shadow-xs shrink-0">
-                      <Clock className="w-3.5 h-3.5 text-resty-orange shrink-0" />
-                      <span>19:15 - 20:30</span>
-                    </div>
+                    <p className="mt-1 font-heading text-xl sm:text-2xl font-semibold leading-none text-resty-stone">
+                      21,60 € <span className="font-sans text-gray-400 text-xs font-normal">/pz</span>
+                    </p>
                   </div>
-                </div>
 
-                {/* Key value guarantees (Non da asporto!) */}
-                <div className="space-y-2.5 text-xs sm:text-[13px] text-resty-stone-light font-sans">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-resty-peach border border-resty-orange/15 flex items-center justify-center text-resty-orange shrink-0">
-                      <Check className="w-3 h-3 stroke-[2.5]" />
-                    </div>
-                    <span>
-                      <strong className="font-semibold text-resty-stone">Consumazione al tavolo:</strong> ti siedi in sala con il servizio di sempre.
+                  <div className="mt-3 flex flex-col gap-1.5">
+                    <span className="text-[11px] font-sans text-resty-stone/50 text-left">
+                      Quantità (unità)
                     </span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-resty-peach border border-resty-orange/15 flex items-center justify-center text-resty-orange shrink-0">
-                      <Check className="w-3 h-3 stroke-[2.5]" />
+                    <div className="flex items-center justify-between gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                        disabled={quantity <= 1}
+                        aria-label="Diminuisci quantità"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-resty-stone/15 bg-white text-resty-stone hover:bg-resty-stone/5 disabled:opacity-40 transition-colors shadow-xs cursor-pointer disabled:cursor-not-allowed"
+                      >
+                        <Minus size={14} strokeWidth={1.75} />
+                      </button>
+                      <span className="font-sans text-sm font-medium text-resty-stone tabular-nums min-w-[2ch] text-center">
+                        {quantity}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setQuantity((q) => Math.min(5, q + 1))}
+                        disabled={quantity >= 5}
+                        aria-label="Aumenta quantità"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-resty-stone/15 bg-white text-resty-stone hover:bg-resty-stone/5 disabled:opacity-40 transition-colors shadow-xs cursor-pointer disabled:cursor-not-allowed"
+                      >
+                        <Plus size={14} strokeWidth={1.75} />
+                      </button>
                     </div>
-                    <span>
-                      <strong className="font-semibold text-resty-stone">Prezzo fisso garantito:</strong> sai quanto spendi prima di uscire di casa.
-                    </span>
+                    <div className="text-xs font-sans text-resty-stone text-center mt-0.5">
+                      <span className="text-resty-stone/50">Totale </span>
+                      <span className="text-resty-orange font-medium tabular-nums font-sans">
+                        {(21.6 * quantity).toFixed(2).replace(".", ",")} €
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Floating micro-pill indicator */}
-                <div className="mt-5 pt-4 border-t border-resty-stone-border/70 flex items-center justify-between text-xs text-resty-stone-muted font-sans">
-                  <span className="flex items-center gap-1.5">
-                    <Utensils className="w-3.5 h-3.5 text-resty-stone-muted" />
-                    Offerta sul piatto (coperto e bevande a parte)
-                  </span>
-                  <span className="font-semibold text-resty-orange-dark">
-                    Solo 3 piatti rimasti
-                  </span>
+                  <Link
+                    href="/per-i-clienti#avvisami-lancio"
+                    className="mt-3 inline-flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-full bg-resty-stone hover:bg-resty-orange text-white px-5 py-2.5 font-sans text-sm font-semibold transition-all duration-200 shadow-sm cursor-pointer text-center group/btn"
+                  >
+                    <span>Prenota al tavolo</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  </Link>
                 </div>
-              </div>
+              </article>
 
-              {/* Decorative background element for the card */}
-              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-[28px] bg-resty-peach/70 border border-resty-orange/15 -z-10 transform rotate-1 hidden sm:block" />
+              {/* Decorative warm ambient layer behind card */}
+              <div className="absolute -bottom-2 -right-2 w-full h-full rounded-2xl md:rounded-3xl bg-resty-orange/5 border border-resty-orange/15 -z-10 transform rotate-1 hidden sm:block pointer-events-none" />
             </div>
           </div>
         </div>
