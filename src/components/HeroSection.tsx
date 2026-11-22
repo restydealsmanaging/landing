@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Clock, MapPin, Sparkles, Utensils, ShieldCheck, Flame } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Utensils, ShieldCheck, Flame } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -44,17 +44,6 @@ export default function HeroSection() {
               >
                 <span>Per i clienti · Avvisami al lancio</span>
               </Link>
-            </div>
-
-            {/* Titoli alternativi & Payoff pill from doc */}
-            <div className="w-full pt-6 border-t border-resty-stone-border/70 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-xs sm:text-sm text-resty-stone-muted">
-              <div className="flex items-center gap-1.5 font-medium text-resty-stone-light">
-                <Sparkles className="w-4 h-4 text-resty-orange" />
-                <span>La nostra promessa:</span>
-              </div>
-              <div className="italic">
-                &ldquo;Buono come sempre. Conveniente quando c&apos;è un&apos;offerta.&rdquo;
-              </div>
             </div>
           </div>
 

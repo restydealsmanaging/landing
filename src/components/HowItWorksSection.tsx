@@ -90,13 +90,6 @@ export default function HowItWorksSection() {
             );
           })}
         </div>
-
-        {/* Value Tagline Banner */}
-        <div className="mt-12 text-center">
-          <p className="inline-block px-5 py-2.5 rounded-full bg-white border border-resty-stone-border text-sm font-medium text-resty-stone-light shadow-2xs">
-            🌱 <strong className="text-resty-stone">Più occasioni per mangiare fuori.</strong> Più valore per i ristoranti, zero spreco per tutti.
-          </p>
-        </div>
       </div>
     </section>
   );

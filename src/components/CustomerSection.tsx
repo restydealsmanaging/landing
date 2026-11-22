@@ -184,12 +184,6 @@ export default function CustomerSection() {
             {errorMsg && (
               <p className="mt-3 text-xs text-red-600">{errorMsg}</p>
             )}
-
-            {/* Motti alternativi dal documento */}
-            <div className="mt-8 pt-6 border-t border-resty-stone-border/60 flex flex-wrap items-center justify-center gap-6 text-xs text-resty-stone-muted">
-              <span>🍽️ <em>&ldquo;Più occasioni per uscire a cena.&rdquo;</em></span>
-              <span>✨ <em>&ldquo;Un buon piatto, un prezzo che invoglia.&rdquo;</em></span>
-            </div>
           </div>
         </div>
       </div>

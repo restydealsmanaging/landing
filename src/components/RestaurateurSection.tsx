@@ -142,18 +142,6 @@ export default function RestaurateurSection() {
                 Prova RestyDeals nel tuo ristorante e raccontaci come va. Nessun
                 costo di attivazione, nessun vincolo. Ti aiutiamo noi a impostare la prima offerta.
               </p>
-
-              {/* Taglines from doc */}
-              <div className="space-y-3 pt-6 border-t border-white/15 text-sm text-stone-300">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-resty-orange" />
-                  <span className="italic">&ldquo;Dai ai clienti un motivo in più per sedersi da te.&rdquo;</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-resty-orange" />
-                  <span className="italic">&ldquo;Metti in promozione i tuoi piatti, negli orari che scegli tu.&rdquo;</span>
-                </div>
-              </div>
             </div>
 
             {/* Right side form */}
