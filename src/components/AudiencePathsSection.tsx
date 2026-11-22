@@ -1,15 +1,11 @@
 import Link from "next/link";
-import { Store, Utensils, Heart, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { Store, Utensils, Heart, ArrowRight, ShieldCheck } from "lucide-react";
 
 export default function AudiencePathsSection() {
   return (
     <section className="py-20 md:py-28 bg-white border-t border-resty-stone-border/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Due percorsi, un unico valore</span>
-          </div>
           <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
             Scegli come vivere <span className="text-resty-orange">RestyDeals</span>
           </h2>
