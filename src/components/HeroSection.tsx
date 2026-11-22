@@ -93,11 +93,6 @@ export default function HeroSection() {
                       Varese · Centro
                     </span>
                   </div>
-
-                  {/* Discount badge over image */}
-                  <div className="absolute bottom-3 right-3 bg-resty-orange text-white text-xs font-black px-2.5 py-1 rounded-lg shadow-md font-sans">
-                    -{discountPercent}%
-                  </div>
                 </div>
 
                 {/* Card Body */}
