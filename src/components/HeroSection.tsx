@@ -14,12 +14,6 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headlines & Call to Actions */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* Eyebrow tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-sand-card border border-resty-stone-border/80 text-xs font-bold tracking-wider uppercase text-resty-orange-dark mb-6">
-              <span className="w-2 h-2 rounded-full bg-resty-orange inline-block" />
-              <span>Titolo principale · Web App in fase di test</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight leading-[1.08] mb-6">
               Stessa qualità. <br />
