@@ -92,15 +92,11 @@ export default function HeroSection() {
                     alt="Risotto ai Porcini & Mirtilli delle Prealpi"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
-                  {/* Top Floating Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-3 left-3">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-semibold text-resty-stone shadow-sm">
                       <MapPin size={12} className="text-resty-orange" />
                       Varese · Centro
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-resty-green text-white text-[11px] font-bold shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      Offerta attiva
                     </span>
                   </div>
 
