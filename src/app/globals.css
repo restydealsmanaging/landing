@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: var(--font-heading-font), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
 
-  --color-resty-ivory: #FDFCF8;
-  --color-resty-stone: #2D2D2A;
-  --color-resty-stone-light: #52524D;
-  --color-resty-stone-muted: #82827A;
-  --color-resty-stone-border: #E5E1D6;
+  --color-resty-ivory: #FDFBF7;
+  --color-resty-stone: #1C1917;
+  --color-resty-stone-light: #57534E;
+  --color-resty-stone-muted: #78716C;
+  --color-resty-stone-border: #E7E5E4;
   
-  --color-resty-orange: #FF6B35;
-  --color-resty-orange-hover: #E85923;
-  --color-resty-orange-light: #FF8F66;
+  --color-resty-orange: #DD571C;
+  --color-resty-orange-hover: #B43D0F;
+  --color-resty-orange-light: #FF7E67;
   --color-resty-orange-dark: #B43D0F;
-  --color-resty-orange-soft: #FFF1EB;
+  --color-resty-orange-soft: #FEECE5;
 
-  --color-resty-sand: #F7F4EC;
-  --color-resty-sand-card: #F2ECE0;
-  --color-resty-peach: #FAEDE5;
+  --color-resty-sand: #FAF7F2;
+  --color-resty-sand-card: #F5F0E6;
+  --color-resty-peach: #FEECE5;
 
   --color-resty-green: #16A34A;
   --color-resty-green-dark: #15803D;
