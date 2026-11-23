@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomerSection from "@/components/CustomerSection";
-import { CheckCircle2, UtensilsCrossed, Sparkles, MapPin, Clock } from "lucide-react";
+import { CheckCircle2, UtensilsCrossed, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Per i Clienti | Stessa qualità, prezzo in promozione · RestyDeals",
@@ -18,15 +18,14 @@ export default function ClientiPage() {
         {/* Dedicated Hero Banner */}
         <section className="pt-12 pb-8 md:pt-16 md:pb-12 border-b border-resty-stone-border/60 bg-resty-sand/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Esperienza al Tavolo · Zero Spreco</span>
-              </div>
-              <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
+            <div className="max-w-4xl">
+              <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06] mb-6 sm:mb-8">
+                L&apos;esperienza unica del <span className="text-resty-orange">nostro mondo.</span>
+              </h1>
+              <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
                 Stessa qualità, <br />
                 <span className="text-resty-orange">prezzo in promozione.</span>
-              </h1>
+              </h2>
               <p className="text-lg sm:text-xl text-resty-stone-light leading-relaxed mb-6">
                 Il piatto che scegli, al tavolo. Scopri le offerte dei ristoranti
                 aderenti nella provincia di Varese, controlla il prezzo e la fascia
