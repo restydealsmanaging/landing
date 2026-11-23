@@ -24,20 +24,34 @@ export async function POST(request: Request) {
       ...body,
     };
 
-    // 1. Salvataggio di sicurezza locale su leads.json
-    let existingLeads: Array<unknown> = [];
+    // 1. Salvataggio locale sicuro (se supportato dal filesystem, es. in locale)
     try {
-      const fileData = await fs.readFile(DATA_FILE, "utf-8");
-      existingLeads = JSON.parse(fileData);
-    } catch {
-      existingLeads = [];
+      let existingLeads: Array<unknown> = [];
+      try {
+        const fileData = await fs.readFile(DATA_FILE, "utf-8");
+        existingLeads = JSON.parse(fileData);
+      } catch {
+        existingLeads = [];
+      }
+
+      existingLeads.push(newLead);
+      await fs.writeFile(DATA_FILE, JSON.stringify(existingLeads, null, 2), "utf-8");
+    } catch (fsError) {
+      // Su ambienti serverless come Vercel il filesystem root è in sola lettura: non blocchiamo l'invio
+      console.warn("[Leads API] Salvataggio locale su leads.json saltato (filesystem read-only):", fsError);
     }
 
-    existingLeads.push(newLead);
-    await fs.writeFile(DATA_FILE, JSON.stringify(existingLeads, null, 2), "utf-8");
-
     // 2. Invio notifica via email a restydeals.managing@gmail.com
-    const emailResult = await sendLeadNotificationEmail(newLead);
+    let emailResult: { success: boolean; provider?: string; error?: string } = {
+      success: false,
+      provider: "none",
+      error: "",
+    };
+    try {
+      emailResult = await sendLeadNotificationEmail(newLead);
+    } catch (emailErr) {
+      console.error("[Leads API] Errore inatteso invio email:", emailErr);
+    }
 
     return NextResponse.json({
       success: true,

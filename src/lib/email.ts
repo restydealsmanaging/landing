@@ -269,8 +269,9 @@ function generateCustomerEmailHtml(data: CustomerLeadData): string {
   `.trim();
 }
 
-function escapeHtml(str: string = ""): string {
-  return str
+function escapeHtml(val: unknown): string {
+  if (val === null || val === undefined) return "";
+  return String(val)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
