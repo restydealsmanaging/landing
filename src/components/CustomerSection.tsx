@@ -199,30 +199,33 @@ export default function CustomerSection() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     {/* Left Column: Visual Dining Pass Card */}
                     <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-resty-stone-border/80 shadow-md">
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-resty-peach text-[11px] font-semibold text-resty-orange-dark">
-                          <MapPin size={12} />
-                          Varese · Centro
+                      {/* Top Row: Place Name + Location (No pillow) */}
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] uppercase tracking-wider text-resty-stone-muted font-sans font-semibold">
+                          Trattoria San Giorgio
                         </span>
-                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-resty-green-soft text-resty-green border border-resty-green/20">
-                          Al tavolo stasera
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-resty-orange-dark">
+                          <MapPin size={12} className="text-resty-orange shrink-0" />
+                          Varese · Centro
                         </span>
                       </div>
 
-                      <div className="text-[11px] uppercase tracking-wider text-resty-stone-muted font-sans font-medium mb-1">
-                        Trattoria San Giorgio
-                      </div>
                       <h4 className="font-heading font-bold text-lg text-resty-stone mb-3 leading-snug">
                         Risotto ai Porcini &amp; Mirtilli
                       </h4>
 
                       <div className="space-y-1.5 text-xs text-resty-stone-light font-sans pb-3 mb-3 border-b border-resty-stone/10">
-                        <div className="flex items-center gap-2 text-resty-stone font-medium">
-                          <Clock size={13} className="text-resty-orange" />
-                          <span>Fascia: <strong>19:15 - 20:30</strong></span>
+                        <div className="flex items-center justify-between gap-2 text-resty-stone font-medium">
+                          <div className="flex items-center gap-2">
+                            <Clock size={13} className="text-resty-orange shrink-0" />
+                            <span>Fascia: <strong>19:15 - 20:30</strong></span>
+                          </div>
+                          <span className="text-[11px] font-semibold text-resty-green shrink-0">
+                            Al tavolo stasera
+                          </span>
                         </div>
                         <div className="flex items-center gap-2 text-resty-stone-muted">
-                          <Users size={13} />
+                          <Users size={13} className="shrink-0" />
                           <span>Coperto e bevande a listino normale</span>
                         </div>
                       </div>
@@ -296,30 +299,33 @@ export default function CustomerSection() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     {/* Left Column: Visual Mystery Bag */}
                     <div className="lg:col-span-5 bg-white/90 rounded-2xl p-6 border border-stone-200 shadow-sm opacity-90">
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-stone-200 text-[11px] font-semibold text-stone-700">
-                          <Package size={12} />
-                          Mystery Bag da asporto
+                      {/* Top Row: Place Name + Mystery Bag (No pillow) */}
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] uppercase tracking-wider text-stone-400 font-sans font-semibold">
+                          Locale generico
                         </span>
-                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
-                          Solo ritiro al banco
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-600">
+                          <Package size={12} className="text-stone-400 shrink-0" />
+                          Mystery Bag da asporto
                         </span>
                       </div>
 
-                      <div className="text-[11px] uppercase tracking-wider text-stone-400 font-sans font-medium mb-1">
-                        Locale generico
-                      </div>
                       <h4 className="font-sans font-bold text-lg text-stone-800 mb-3 leading-snug">
                         Contenuto a sorpresa (invenduti)
                       </h4>
 
                       <div className="space-y-1.5 text-xs text-stone-500 font-sans pb-3 mb-3 border-b border-stone-200">
-                        <div className="flex items-center gap-2">
-                          <Clock size={13} className="text-stone-400" />
-                          <span>Ritiro: <strong>21:45 - 22:00</strong> (fascia rigida)</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 text-stone-600 font-medium">
+                            <Clock size={13} className="text-stone-400 shrink-0" />
+                            <span>Ritiro: <strong>21:45 - 22:00</strong></span>
+                          </div>
+                          <span className="text-[11px] font-semibold text-amber-800 shrink-0">
+                            Solo ritiro al banco
+                          </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Package size={13} className="text-stone-400" />
+                          <Package size={13} className="text-stone-400 shrink-0" />
                           <span>Da portare a casa in busta di carta</span>
                         </div>
                       </div>
