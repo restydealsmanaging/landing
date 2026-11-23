@@ -199,13 +199,13 @@ export default function CustomerSection() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     {/* Left Column: Visual Dining Pass Card */}
                     <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-resty-stone-border/80 shadow-md">
-                      {/* Top Row: Place Name + Location (No pillow) */}
+                      {/* Top Row: Place Name (Primary) + Location (Secondary) */}
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-[11px] uppercase tracking-wider text-resty-stone-muted font-sans font-semibold">
+                        <span className="text-xs uppercase tracking-wider text-resty-stone font-sans font-bold">
                           Trattoria San Giorgio
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-resty-orange-dark">
-                          <MapPin size={12} className="text-resty-orange shrink-0" />
+                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-resty-stone-muted">
+                          <MapPin size={12} className="text-resty-stone-muted/70 shrink-0" />
                           Varese · Centro
                         </span>
                       </div>
@@ -220,7 +220,8 @@ export default function CustomerSection() {
                             <Clock size={13} className="text-resty-orange shrink-0" />
                             <span>Fascia: <strong>19:15 - 20:30</strong></span>
                           </div>
-                          <span className="text-[11px] font-semibold text-resty-green shrink-0">
+                          <span className="text-[11px] font-medium text-resty-stone-light flex items-center gap-1.5 shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-resty-orange shrink-0" />
                             Al tavolo stasera
                           </span>
                         </div>
@@ -307,12 +308,12 @@ export default function CustomerSection() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     {/* Left Column: Visual Mystery Bag */}
                     <div className="lg:col-span-5 bg-white/90 rounded-2xl p-6 border border-stone-200 shadow-sm opacity-90">
-                      {/* Top Row: Place Name + Mystery Bag (No pillow) */}
+                      {/* Top Row: Place Name + Mystery Bag */}
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-[11px] uppercase tracking-wider text-stone-400 font-sans font-semibold">
+                        <span className="text-xs uppercase tracking-wider text-stone-700 font-sans font-bold">
                           Locale generico
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-600">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-stone-400">
                           <Package size={12} className="text-stone-400 shrink-0" />
                           Mystery Bag da asporto
                         </span>
@@ -328,7 +329,8 @@ export default function CustomerSection() {
                             <Clock size={13} className="text-stone-400 shrink-0" />
                             <span>Ritiro: <strong>21:45 - 22:00</strong></span>
                           </div>
-                          <span className="text-[11px] font-semibold text-amber-800 shrink-0">
+                          <span className="text-[11px] font-medium text-stone-500 flex items-center gap-1.5 shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0" />
                             Solo ritiro al banco
                           </span>
                         </div>
