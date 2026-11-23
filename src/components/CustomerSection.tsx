@@ -381,91 +381,75 @@ export default function CustomerSection() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          3. THE UNIFIED 3-STEP JOURNEY (Timeline fluida e continua)
-          Replaces the second 3-cards grid with a connected, linear sequence
+          3. THE UNIFIED 3-STEP JOURNEY (Open Timeline Rail - ZERO CARDS)
+          Replaces the card soup with a fluid, continuous progressive rail
          ───────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-resty-sand/50 border-b border-resty-stone-border/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
             <span className="text-xs font-bold uppercase tracking-wider text-resty-stone-muted">
-              Semplice e immediato
+              Il viaggio in 3 tappe
             </span>
             <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mt-2 mb-4">
               Come funziona la tua cena
             </h2>
             <p className="text-sm sm:text-base text-resty-stone-light font-sans leading-relaxed">
-              Dalla scoperta dell&apos;offerta al tavolo della sala in tre passaggi certi.
+              Dalla scoperta dell&apos;offerta al tavolo del ristorante, senza scatole né asporto.
             </p>
           </div>
 
-          {/* Unified Connected Horizontal Journey Strip */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative">
-            {/* Step 1 */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-resty-stone-border/80 shadow-sm flex flex-col justify-between relative group hover:shadow-md transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="font-sans font-black text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
-                    01
-                  </span>
-                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
-                    Esplora
-                  </span>
+          {/* Connected Horizontal Timeline Rail (Zero Cards, 100% Fluid Narrative) */}
+          <div className="relative">
+            {/* Continuous horizontal guide line on desktop */}
+            <div className="hidden md:block absolute top-7 left-[15%] right-[15%] h-[2px] bg-resty-stone-border/80 z-0" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-14 relative z-10">
+              {/* Milestone 1 */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-resty-orange text-resty-orange font-sans font-black text-lg flex items-center justify-center mb-6 shadow-xs">
+                  01
                 </div>
-                <h3 className="font-sans font-bold text-lg text-resty-stone mb-2 leading-snug">
-                  Scopri le proposte della sera
+                <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
+                  Passo 1 · Esplora
+                </div>
+                <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
+                  Scopri le proposte del giorno
                 </h3>
-                <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
-                  I ristoranti aderenti a Varese e dintorni pubblicano i piatti freschi disponibili nelle loro fasce orarie meno affollate.
+                <p className="text-sm text-resty-stone-light font-sans leading-relaxed">
+                  I ristoranti aderenti a Varese e dintorni pubblicano i piatti freschi disponibili nelle loro fasce orarie meno affollate. Visualizzi foto, ingredienti e orario prima di partire.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-resty-stone-border/40 text-xs font-semibold text-resty-orange flex items-center gap-1.5">
-                <span>Foto, ingredienti e orario chiari</span>
-              </div>
-            </div>
 
-            {/* Step 2 */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-resty-stone-border/80 shadow-sm flex flex-col justify-between relative group hover:shadow-md transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="font-sans font-black text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
-                    02
-                  </span>
-                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
-                    Blocca
-                  </span>
+              {/* Milestone 2 */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-resty-orange text-resty-orange font-sans font-black text-lg flex items-center justify-center mb-6 shadow-xs">
+                  02
                 </div>
-                <h3 className="font-sans font-bold text-lg text-resty-stone mb-2 leading-snug">
+                <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
+                  Passo 2 · Blocca
+                </div>
+                <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
                   Blocchi il piatto e l&apos;orario
                 </h3>
-                <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
-                  Verifichi la fascia oraria di arrivo e il prezzo in promozione (es. 11,50€ invece di 18€). Sai esattamente cosa spendi prima di uscire.
+                <p className="text-sm text-resty-stone-light font-sans leading-relaxed">
+                  Verifichi la fascia oraria di arrivo e il prezzo in promozione (es. 11,50€ invece di 18€). Sai esattamente quanto spendi prima ancora di uscire di casa.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-resty-stone-border/40 text-xs font-semibold text-resty-orange flex items-center gap-1.5">
-                <span>Nessun pagamento anticipato al buio</span>
-              </div>
-            </div>
 
-            {/* Step 3 */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-resty-stone-border/80 shadow-sm flex flex-col justify-between relative group hover:shadow-md transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="font-sans font-black text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
-                    03
-                  </span>
-                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
-                    Gusta
-                  </span>
+              {/* Milestone 3 */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="w-14 h-14 rounded-2xl bg-white border-2 border-resty-orange text-resty-orange font-sans font-black text-lg flex items-center justify-center mb-6 shadow-xs">
+                  03
                 </div>
-                <h3 className="font-sans font-bold text-lg text-resty-stone mb-2 leading-snug">
+                <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
+                  Passo 3 · Gusta
+                </div>
+                <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
                   Ti accomodi al tavolo e gusti
                 </h3>
-                <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
-                  Ti presenti al locale con la conferma, ti siedi in sala e il piatto viene cucinato espresso al momento, con la consueta cura della brigata.
+                <p className="text-sm text-resty-stone-light font-sans leading-relaxed">
+                  Arrivi al ristorante nella fascia indicata, mostri la conferma e ti siedi. Lo chef cucina il piatto espresso al momento, con la consueta cura della brigata e il servizio di sala.
                 </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-resty-stone-border/40 text-xs font-semibold text-resty-orange flex items-center gap-1.5">
-                <span>Accoglienza autentica e zero fretta</span>
               </div>
             </div>
           </div>
