@@ -77,13 +77,21 @@ export default function CustomerSection() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             {/* Cinematic Headline: Syne medium tracking-tight */}
-            <h1 className="font-heading font-medium text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.08] mb-6">
-              Il piatto che scegli, <br />
-              <span className="text-resty-orange">al tavolo del ristorante.</span>
+            <h1 className="font-heading font-medium text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.08] mb-5">
+              L&apos;esperienza unica del <br />
+              <span className="text-resty-orange">nostro mondo.</span>
             </h1>
 
+            {/* Core Value Proposition & Subtitle */}
+            <div className="text-xl sm:text-2xl font-sans font-semibold text-resty-stone mb-4 leading-snug">
+              Stessa qualità, prezzo in promozione.{" "}
+              <span className="text-resty-stone-light font-normal text-lg sm:text-xl block sm:inline mt-1 sm:mt-0">
+                Il piatto che scegli, al tavolo del ristorante.
+              </span>
+            </div>
+
             {/* Human, authentic lead copy */}
-            <p className="text-lg sm:text-xl text-resty-stone-light font-sans font-normal leading-relaxed mb-8 max-w-2xl">
+            <p className="text-base sm:text-lg text-resty-stone-light font-sans font-normal leading-relaxed mb-8 max-w-2xl">
               Niente buste fredde da asporto né scatole misteriose. Con RestyDeals
               scopri cosa propongono i ristoranti di Varese e provincia nelle loro
               fasce orarie dedicate: ti accomodi in sala, gusti il piatto cucinato

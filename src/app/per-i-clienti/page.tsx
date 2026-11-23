@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import CustomerSection from "@/components/CustomerSection";
 
 export const metadata: Metadata = {
-  title: "Per i Clienti | Il piatto che scegli, al tavolo · RestyDeals",
+  title: "Per i Clienti | L'esperienza unica del nostro mondo · RestyDeals",
   description:
-    "Scopri le offerte dei ristoranti a Varese e provincia. Piatto al tavolo preparato espresso, prezzi trasparenti e zero spreco alimentare.",
+    "Stessa qualità, prezzo in promozione. Scopri le offerte dei ristoranti a Varese e provincia: piatto al tavolo preparato espresso e prezzi trasparenti.",
 };
 
 export default function ClientiPage() {
