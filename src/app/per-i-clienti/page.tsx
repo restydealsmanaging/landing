@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomerSection from "@/components/CustomerSection";
-import { CheckCircle2, UtensilsCrossed, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Per i Clienti | Stessa qualità, prezzo in promozione · RestyDeals",
@@ -22,26 +21,10 @@ export default function ClientiPage() {
               <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06] mb-6 sm:mb-8">
                 L&apos;esperienza unica del <span className="text-resty-orange">nostro mondo.</span>
               </h1>
-              <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
+              <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight leading-[1.12]">
                 Stessa qualità, <br />
                 <span className="text-resty-orange">prezzo in promozione.</span>
               </h2>
-              <p className="text-lg sm:text-xl text-resty-stone-light leading-relaxed mb-6">
-                Il piatto che scegli, al tavolo. Scopri le offerte dei ristoranti
-                aderenti nella provincia di Varese, controlla il prezzo e la fascia
-                oraria e gusta il piatto direttamente nel locale con la qualità di sempre.
-              </p>
-              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-resty-stone-light">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-resty-green" /> Prezzo chiaro prima di andare
-                </span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-resty-green" /> Servizio autentico in sala
-                </span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-resty-green" /> Aiuti a ridurre lo spreco
-                </span>
-              </div>
             </div>
           </div>
         </section>
