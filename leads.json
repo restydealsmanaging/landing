@@ -52,5 +52,41 @@
     "email": "matticiao.gdl@gmail.com",
     "cuisineType": "",
     "notes": ""
+  },
+  {
+    "id": "lead_1795436733866_5xv5b",
+    "type": "restaurant",
+    "createdAt": "2026-11-23T12:25:33.866Z",
+    "restaurantName": "Matteo Di Liberto",
+    "contactName": "Matteo Di Liberto",
+    "city": "Gallarate",
+    "phone": "3711500055",
+    "email": "matticiao.gdl@gmail.com",
+    "cuisineType": "",
+    "notes": ""
+  },
+  {
+    "id": "lead_1795436749012_7dxj3",
+    "type": "restaurant",
+    "createdAt": "2026-11-23T12:25:49.012Z",
+    "restaurantName": "Matteo Di Liberto",
+    "contactName": "Matteo Di Liberto",
+    "city": "Gallarate",
+    "phone": "3711500055",
+    "email": "matticiao.gdl@gmail.com",
+    "cuisineType": "",
+    "notes": ""
+  },
+  {
+    "id": "lead_1795437173472_i61td",
+    "type": "restaurant",
+    "createdAt": "2026-11-23T12:32:53.472Z",
+    "restaurantName": "Matteo Di Liberto",
+    "contactName": "Matteo Di Liberto",
+    "city": "Gallarate",
+    "phone": "3711500055",
+    "email": "matticiao.gdl@gmail.com",
+    "cuisineType": "",
+    "notes": ""
   }
 ]

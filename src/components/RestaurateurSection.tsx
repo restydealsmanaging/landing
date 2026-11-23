@@ -2,7 +2,33 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { TrendingUp, Users, Clock, Loader2, Send, ArrowRight } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
+
+function PerspectivePaperPlane({ className = "w-14 h-14" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Ala principale sinistra distesa in piena luce */}
+      <polygon points="58,10 8,34 32,36" fill="#FF7235" />
+      {/* Chiglia centrale / fusoliera a V sinistra */}
+      <polygon points="58,10 32,36 24,50" fill="#DD571C" />
+      {/* Chiglia destra e sottoala in ombra profonda */}
+      <polygon points="58,10 24,50 38,32" fill="#9E3306" />
+      {/* Ala opposta piegata verso l'alto con sfaccettatura a vista in prospettiva */}
+      <polygon points="58,10 38,32 50,20" fill="#FFA372" />
+      {/* Piega / risvolto tridimensionale dell'ala lontana */}
+      <polygon points="50,20 38,32 44,30" fill="#FFC5A3" />
+      {/* Linee di piega origami ad alta precisione */}
+      <line x1="58" y1="10" x2="24" y2="50" stroke="#7A2402" strokeWidth="0.8" strokeLinecap="round" />
+      <line x1="58" y1="10" x2="32" y2="36" stroke="#E05518" strokeWidth="0.6" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function RestaurateurSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -53,54 +79,42 @@ export default function RestaurateurSection() {
 
   const advantages = [
     {
-      icon: TrendingUp,
+      metric: "Zero sprechi alimentari",
       title: "Vendi ciò che rischia di restare invenduto",
       text: "Proponi i piatti che puoi servire con gli ingredienti che hai già in cucina. Riduci gli sprechi e trasformi costi vivi in ricavi netti.",
-      metric: "Zero sprechi alimentari",
     },
     {
-      icon: Clock,
+      metric: "+ Coperti nei momenti morti",
       title: "Dai un motivo per venire nelle ore tranquille",
       text: "Dedica una promozione ai servizi o alle fasce orarie con meno coperti per aumentare gli incassi senza intaccare il servizio di punta.",
-      metric: "+ Coperti nei momenti calmi",
     },
     {
-      icon: Users,
+      metric: "Nuovi clienti in sala",
       title: "Fai conoscere il tuo locale a nuovi clienti",
       text: "Usa le offerte come vetrina per raccontare cosa prepari e dare ai clienti della tua zona un motivo concreto per venirti a trovare di persona.",
-      metric: "Nuovi clienti in sala",
     },
   ];
 
   return (
     <section id="per-i-ristoratori" className="py-16 md:py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 3 Advantages Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-24">
-          {advantages.map((adv, idx) => {
-            const Icon = adv.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white rounded-3xl p-7 border border-resty-stone-border/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-resty-sand flex items-center justify-center text-resty-orange mb-5">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-sans font-bold text-lg text-resty-stone mb-3 leading-snug">
-                    {adv.title}
-                  </h3>
-                  <p className="text-sm text-resty-stone-light leading-relaxed mb-6">
-                    {adv.text}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-resty-stone-border/60 text-xs font-semibold text-resty-orange-dark">
-                  {adv.metric}
-                </div>
+        {/* 3 Advantages - Colonne Editoriali con Eyebrow di Valore (Zero Icon Cliché) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 mb-20 md:mb-28">
+          {advantages.map((adv, idx) => (
+            <div key={idx} className="flex flex-col">
+              {/* Eyebrow: Beneficio concreto orientato al business del ristoratore */}
+              <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-resty-orange shrink-0" />
+                <span>{adv.metric}</span>
               </div>
-            );
-          })}
+              <h3 className="font-heading font-medium text-xl sm:text-2xl text-resty-stone mb-3 leading-snug tracking-tight">
+                {adv.title}
+              </h3>
+              <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed font-sans">
+                {adv.text}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Lead Capture Box / Application Form */}
@@ -284,45 +298,39 @@ export default function RestaurateurSection() {
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="relative z-10 py-12 text-center max-w-xl mx-auto"
               >
-                {/* Aeroplanino di carta: parte in piccolo in basso a sinistra, vola ad arco e atterra al centro */}
+                {/* Aeroplanino di carta in prospettiva 3D: traiettoria continua e fluida, zero scatti */}
                 <motion.div
                   initial={
                     shouldReduceMotion
                       ? { opacity: 0 }
-                      : { opacity: 0, scale: 0.15, x: -120, y: 80, rotate: -20 }
+                      : { opacity: 0, scale: 0.18, x: -140, y: 90, rotate: -20 }
                   }
                   animate={
                     shouldReduceMotion
                       ? { opacity: 1 }
-                      : {
-                          opacity: [0, 1, 1],
-                          scale: [0.15, 1.18, 1],
-                          x: [-120, -25, 0],
-                          y: [80, -18, 0],
-                          rotate: [-20, 10, 0],
-                        }
+                      : { opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }
                   }
                   transition={
                     shouldReduceMotion
                       ? { duration: 0.25 }
                       : {
-                          duration: 1.05,
-                          times: [0, 0.72, 1],
+                          duration: 1.0,
                           ease: [0.16, 1, 0.3, 1],
+                          opacity: { duration: 0.25, ease: "easeOut" },
                         }
                   }
                   className="inline-flex items-center justify-center mx-auto mb-6"
                 >
-                  <Send className="w-12 h-12 text-resty-orange" strokeWidth={1.75} />
+                  <PerspectivePaperPlane className="w-14 h-14 drop-shadow-[0_8px_20px_rgba(221,87,28,0.3)]" />
                 </motion.div>
 
-                {/* Staged entry 1: Titolo principale (appare dopo l'atterraggio dell'aeroplanino) */}
+                {/* Staged entry 1: Titolo principale (appare mentre l'aeroplanino sta decelerando all'arrivo) */}
                 <motion.h4
                   initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    delay: shouldReduceMotion ? 0.1 : 1.4,
-                    duration: 0.45,
+                    delay: shouldReduceMotion ? 0.1 : 0.8,
+                    duration: 0.4,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   className="font-heading font-medium text-3xl sm:text-4xl text-white mb-3 tracking-tight"
@@ -335,7 +343,7 @@ export default function RestaurateurSection() {
                   initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    delay: shouldReduceMotion ? 0.2 : 1.7,
+                    delay: shouldReduceMotion ? 0.2 : 1.1,
                     duration: 0.45,
                     ease: [0.16, 1, 0.3, 1],
                   }}
@@ -348,7 +356,7 @@ export default function RestaurateurSection() {
                 <motion.button
                   initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: shouldReduceMotion ? 0.25 : 1.95, duration: 0.3 }}
+                  transition={{ delay: shouldReduceMotion ? 0.25 : 1.35, duration: 0.3 }}
                   onClick={() => {
                     setSubmitted(false);
                     setFormData({

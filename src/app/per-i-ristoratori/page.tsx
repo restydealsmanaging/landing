@@ -16,7 +16,7 @@ export default function RistoratoriPage() {
       <Navbar />
       <main className="flex-1">
         {/* Dedicated Hero Banner */}
-        <section className="pt-12 pb-8 md:pt-16 md:pb-12 border-b border-resty-stone-border/60 bg-resty-sand/40">
+        <section className="pt-12 pb-8 md:pt-16 md:pb-12 bg-resty-sand/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
