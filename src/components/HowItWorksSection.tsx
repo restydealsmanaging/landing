@@ -322,33 +322,36 @@ export default function HowItWorksSection() {
                       className="will-change-[transform,opacity] flex"
                     >
                       {/* Inner card handles pointer hover independently from outer scroll transform */}
-                      <div className="group relative w-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-resty-stone-border/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-[translate,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col justify-between">
-                        <div>
-                          {/* Top Bar with Number and Badge */}
-                          <div className="flex items-center justify-between mb-3 sm:mb-4">
-                            <span className="font-heading font-black text-xl sm:text-2xl text-resty-orange/30 group-hover:text-resty-orange transition-colors">
+                      <div className="group relative overflow-hidden w-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-resty-stone-border/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-[translate,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col justify-between">
+                        {/* Sfondo con icona filigrana */}
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute -right-4 -top-4 text-resty-orange/[0.08] group-hover:text-resty-orange/[0.13] group-hover:scale-105 transition-all duration-500 ease-out select-none"
+                        >
+                          <Icon className="w-36 h-36 sm:w-44 sm:h-44" strokeWidth={1.2} />
+                        </div>
+
+                        <div className="relative z-10">
+                          {/* Numero e Titolo (ex pillow) */}
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="font-heading font-black text-2xl sm:text-3xl text-resty-orange/35 group-hover:text-resty-orange transition-colors shrink-0">
                               {step.number}
                             </span>
-                            <span className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-resty-sand text-resty-stone-light border border-resty-stone-border/60">
+                            <h3 className="font-heading font-bold text-base sm:text-lg lg:text-xl text-resty-stone leading-tight tracking-tight">
                               {step.badge}
-                            </span>
+                            </h3>
                           </div>
 
-                          {/* Icon */}
-                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-resty-peach/70 text-resty-orange flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-resty-orange group-hover:text-white transition-[scale,background-color,color] duration-300 ease-[cubic-bezier(0.19,1,0.22,1)]">
-                            <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                          </div>
-
-                          {/* Title & Description */}
-                          <h3 className="font-sans font-bold text-base sm:text-lg text-resty-stone mb-1.5 sm:mb-2 leading-snug">
+                          {/* Subtitle & Description */}
+                          <p className="font-sans font-semibold text-xs sm:text-sm text-resty-stone/90 mb-1.5 sm:mb-2 leading-snug">
                             {step.title}
-                          </h3>
+                          </p>
                           <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
                             {step.description}
                           </p>
                         </div>
 
-                        <div className="mt-4 sm:mt-6 pt-3 border-t border-resty-stone-border/50 flex items-center gap-1.5 text-xs font-semibold text-resty-orange">
+                        <div className="relative z-10 mt-4 sm:mt-6 pt-3 border-t border-resty-stone-border/50 flex items-center gap-1.5 text-xs font-semibold text-resty-orange">
                           <span>Passo {step.number} del percorso</span>
                           <ArrowRight className="w-3.5 h-3.5 transition-[translate] duration-200 group-hover:translate-x-1" />
                         </div>
