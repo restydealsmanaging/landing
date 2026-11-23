@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ChefHat, Smartphone, UtensilsCrossed, ArrowRight } from "lucide-react";
+import { ChefHat, Smartphone, UtensilsCrossed } from "lucide-react";
 
 function clamp01(value: number): number {
   return value < 0 ? 0 : value > 1 ? 1 : value;
@@ -349,11 +349,6 @@ export default function HowItWorksSection() {
                           <p className="text-xs sm:text-sm text-resty-stone-light leading-relaxed font-sans">
                             {step.description}
                           </p>
-                        </div>
-
-                        <div className="relative z-10 mt-4 sm:mt-6 pt-3 border-t border-resty-stone-border/50 flex items-center gap-1.5 text-xs font-semibold text-resty-orange">
-                          <span>Passo {step.number} del percorso</span>
-                          <ArrowRight className="w-3.5 h-3.5 transition-[translate] duration-200 group-hover:translate-x-1" />
                         </div>
                       </div>
                     </div>
