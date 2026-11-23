@@ -11,9 +11,10 @@ function scrollToSection(hash: string) {
 
   if (hash === "come-funziona") {
     // HowItWorksSection è un container sticky di 225vh.
-    // I 3 step con il titolo "Come funziona" appaiono nello Stage 2 (a ~58% dello scorrimento).
+    // I 3 step con il titolo "Come funziona" sono completamente visibili nello Stage 2 (p = 0.78).
+    const targetTop = targetEl.getBoundingClientRect().top + window.scrollY;
     const scrollable = Math.max(targetEl.offsetHeight - window.innerHeight, 1);
-    const targetY = targetEl.offsetTop + scrollable * 0.58;
+    const targetY = targetTop + scrollable * 0.78;
     window.scrollTo({ top: targetY, behavior: "smooth" });
   } else {
     const yOffset = -80; // 80px navbar height offset
@@ -22,20 +23,31 @@ function scrollToSection(hash: string) {
   }
 }
 
+function attemptScroll(hash: string, attempts = 0) {
+  const targetEl = document.getElementById(hash);
+  if (targetEl) {
+    scrollToSection(hash);
+  } else if (attempts < 20) {
+    setTimeout(() => attemptScroll(hash, attempts + 1), 60);
+  }
+}
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    // Gestione dello scorrimento quando si atterra da un'altra pagina con un hash
-    const hash = window.location.hash.replace("#", "") || sessionStorage.getItem("scrollTargetHash");
-    if (hash) {
-      sessionStorage.removeItem("scrollTargetHash");
-      const timer = setTimeout(() => {
-        scrollToSection(hash);
-      }, 150);
-      return () => clearTimeout(timer);
-    }
+    const checkAndScroll = () => {
+      const hash = window.location.hash.replace("#", "") || sessionStorage.getItem("scrollTargetHash");
+      if (hash) {
+        sessionStorage.removeItem("scrollTargetHash");
+        attemptScroll(hash);
+      }
+    };
+
+    checkAndScroll();
+    window.addEventListener("hashchange", checkAndScroll);
+    return () => window.removeEventListener("hashchange", checkAndScroll);
   }, [pathname]);
 
   const navLinks = [
@@ -49,9 +61,10 @@ export default function Navbar() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes("#")) {
       const [path, hash] = href.split("#");
+      const isTargetPage = pathname === path || (path === "/" && pathname === "/");
       const targetEl = document.getElementById(hash);
 
-      if (targetEl) {
+      if (isTargetPage && targetEl) {
         e.preventDefault();
         scrollToSection(hash);
         window.history.pushState(null, "", `#${hash}`);

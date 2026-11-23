@@ -185,6 +185,7 @@ export default function HowItWorksSection() {
     };
 
     const onScroll = () => {
+      measure();
       targetP = computeRawP();
       if (!rafId) {
         lastTime = performance.now();
@@ -206,9 +207,11 @@ export default function HowItWorksSection() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("load", onResize, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onResize);
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
