@@ -231,15 +231,15 @@ export default function CustomerSection() {
                         </div>
                       </div>
 
-                      {/* Price Block (Reference style: compact stacked) */}
-                      <div className="pt-1">
-                        <div className="flex items-center gap-2 mb-0.5">
+                      {/* Price Block (Centered stacked) */}
+                      <div className="pt-2 flex flex-col items-center justify-center text-center">
+                        <div className="flex items-center justify-center gap-2 mb-0.5">
                           <span className="text-xs text-gray-400 line-through font-medium">18,00 €</span>
                           <span className="inline-flex items-center bg-resty-orange text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">
                             -36%
                           </span>
                         </div>
-                        <div className="flex items-baseline gap-1.5">
+                        <div className="flex items-baseline justify-center gap-1.5">
                           <span className="text-2xl font-bold font-sans text-resty-stone tracking-tight">
                             11,50 €
                           </span>
@@ -340,7 +340,7 @@ export default function CustomerSection() {
                         </div>
                       </div>
 
-                      <div className="text-xs text-stone-500 italic">
+                      <div className="pt-2 text-center text-xs text-stone-500 italic">
                         Spesso richiede di essere riscaldato a microonde sul divano.
                       </div>
                     </div>
