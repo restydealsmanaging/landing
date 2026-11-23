@@ -4,7 +4,7 @@ import { Utensils, Laptop, Heart, MapPin } from "lucide-react";
 
 export default function AboutUsSection() {
   return (
-    <section id="chi-siamo" className="py-20 md:py-28 relative">
+    <section id="chi-siamo" className="pt-6 pb-20 md:pt-8 md:pb-28 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
