@@ -15,11 +15,11 @@ export default function ChiSiamoPage() {
     <div className="min-h-screen flex flex-col bg-resty-ivory text-resty-stone selection:bg-resty-orange selection:text-white">
       <Navbar />
       <main className="flex-1">
-        {/* Title Chi Siamo */}
+        {/* Title La Nostra Storia */}
         <section className="pt-12 md:pt-16 pb-2">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight">
-              Chi <span className="text-resty-orange">Siamo</span>
+            <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06]">
+              La nostra <span className="text-resty-orange">storia</span>
             </h1>
           </div>
         </section>
