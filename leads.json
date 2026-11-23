@@ -1,0 +1,23 @@
+[
+  {
+    "id": "lead_1795432130841_ezwpy",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:08:50.841Z",
+    "email": "matticiao.gdl@gmail.com",
+    "city": "Zona Laghi"
+  },
+  {
+    "id": "lead_1795432607953_aoy47",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:16:47.953Z",
+    "email": "fratmgino@ziopera.com",
+    "city": "Gallarate"
+  },
+  {
+    "id": "lead_1795433385592_nhtgg",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:29:45.592Z",
+    "email": "nome@tuoesempio",
+    "city": "Non specificata"
+  }
+]

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   UtensilsCrossed,
   Package,
@@ -16,9 +16,11 @@ import {
   Heart,
   Mail,
   Users,
+  BellRing,
 } from "lucide-react";
 
 export default function CustomerSection() {
+  const shouldReduceMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState<"tavolo" | "asporto">("tavolo");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
@@ -489,34 +491,74 @@ export default function CustomerSection() {
         />
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          {/* Eyebrow badge narrativo e contestuale al posto dell'icona astratta */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-resty-stone-border text-resty-stone text-xs font-semibold shadow-xs mb-6">
-            <span className="w-2 h-2 rounded-full bg-resty-orange animate-pulse" />
-            <span>Accesso prioritario · Ristoranti pilota Varese</span>
-          </div>
-
           <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
             Vuoi scoprire i primi piatti al lancio?
           </h2>
           <p className="text-base sm:text-lg text-resty-stone-light mb-10 max-w-xl mx-auto font-sans leading-relaxed">
-            Stiamo selezionando i primi ristoranti pilota tra Varese, Gallarate e provincia.
-            Lascia la tua email per accedere in anteprima alle prime offerte al tavolo senza vincoli.
+            Lascia la tua email per accedere in anteprima alle prime offerte al tavolo nei locali di Varese e provincia. Ti avviseremo appena si aprono i primi piatti, senza scatole da asporto né vincoli.
           </p>
 
           {submitted ? (
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 sm:p-10 rounded-3xl bg-white border border-resty-green/20 text-center shadow-sm max-w-lg mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="py-6 text-center max-w-xl mx-auto"
             >
-              <CheckCircle2 className="w-12 h-12 text-resty-green mx-auto mb-3" />
-              <h3 className="font-heading font-medium text-2xl text-resty-stone mb-2">
-                Sei nella lista prioritaria!
-              </h3>
-              <p className="text-sm sm:text-base text-resty-stone-light max-w-md mx-auto leading-relaxed">
-                Grazie! Ti avviseremo via email appena apriremo le prime offerte al tavolo nei ristoranti della tua zona.
-              </p>
+              {/* 1. Campanella libera (zero badge, zero riquadro) con rintocco physics-based */}
+              <motion.div
+                style={{ transformOrigin: "top center" }}
+                initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.8, rotate: 0 }}
+                animate={
+                  shouldReduceMotion
+                    ? { opacity: 1 }
+                    : {
+                        opacity: 1,
+                        scale: 1,
+                        rotate: [0, -20, 18, -12, 8, -4, 0],
+                      }
+                }
+                transition={{
+                  scale: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                  opacity: { duration: 0.25 },
+                  rotate: {
+                    delay: 0.25,
+                    duration: 0.85,
+                    ease: [0.36, 0.07, 0.19, 0.97],
+                  },
+                }}
+                className="inline-flex items-center justify-center mx-auto mb-6"
+              >
+                <BellRing className="w-12 h-12 text-resty-orange" strokeWidth={1.75} />
+              </motion.div>
+
+              {/* 2. Prima comparsa: "Sei stato aggiunto in lista!" */}
+              <motion.h3
+                initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: shouldReduceMotion ? 0.1 : 0.55,
+                  duration: 0.4,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone mb-3 tracking-tight"
+              >
+                Sei stato aggiunto in lista!
+              </motion.h3>
+
+              {/* 3. Seconda comparsa successiva: "Ti terremo aggiornato..." */}
+              <motion.p
+                initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: shouldReduceMotion ? 0.2 : 0.8,
+                  duration: 0.45,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="text-base sm:text-lg text-resty-stone-light max-w-lg mx-auto leading-relaxed font-sans"
+              >
+                Ti terremo aggiornato appena apriranno i primi piatti nei locali della tua zona.
+              </motion.p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto text-left">
@@ -593,9 +635,9 @@ export default function CustomerSection() {
                 </p>
               )}
 
-              {/* Micro-trust indicator trasparente e rassicurante */}
+              {/* Micro-trust indicator 100% orientato al cliente */}
               <p className="text-xs text-center text-resty-stone-muted pt-1">
-                Nessuno spam. Ti scriveremo solo per comunicare il lancio dei primi ristoranti a Varese.
+                Nessuno spam. Ti scriveremo solo per avvisarti quando le prime offerte al tavolo saranno disponibili a Varese e provincia.
               </p>
             </form>
           )}
