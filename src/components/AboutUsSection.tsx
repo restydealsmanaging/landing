@@ -8,9 +8,6 @@ export default function AboutUsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-            Chi Siamo
-          </div>
           <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
             Due ragazzi della <br />
             <span className="text-resty-orange">provincia di Varese.</span>

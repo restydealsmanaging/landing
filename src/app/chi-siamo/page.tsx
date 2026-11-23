@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutUsSection from "@/components/AboutUsSection";
-import { Utensils, Laptop, Sparkles, MapPin, Mail, Coffee } from "lucide-react";
+import { Mail, Coffee } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Chi Siamo | Due ragazzi della provincia di Varese · RestyDeals",
@@ -15,22 +15,12 @@ export default function ChiSiamoPage() {
     <div className="min-h-screen flex flex-col bg-resty-ivory text-resty-stone selection:bg-resty-orange selection:text-white">
       <Navbar />
       <main className="flex-1">
-        {/* Dedicated Hero Banner */}
-        <section className="pt-12 pb-8 md:pt-16 md:pb-12 border-b border-resty-stone-border/60 bg-resty-sand/40">
+        {/* Hero Banner Chi Siamo */}
+        <section className="pt-12 pb-8 md:pt-16 md:pb-10 border-b border-resty-stone-border/60 bg-resty-sand/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>La Nostra Storia · Provincia di Varese</span>
-              </div>
-              <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
-                Due ragazzi della <br />
-                <span className="text-resty-orange">provincia di Varese.</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-resty-stone-light leading-relaxed mb-4">
-                Una cucina, un computer, un&apos;idea. Abbiamo unito il mondo della ristorazione reale con lo sviluppo software per creare qualcosa di concreto e utile.
-              </p>
-            </div>
+            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight">
+              Chi <span className="text-resty-orange">Siamo</span>
+            </h1>
           </div>
         </section>
 
