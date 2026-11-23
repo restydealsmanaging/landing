@@ -16,7 +16,6 @@ import {
   Heart,
   Mail,
   Users,
-  Compass,
 } from "lucide-react";
 
 export default function CustomerSection() {
@@ -427,7 +426,7 @@ export default function CustomerSection() {
                   01
                 </div>
                 <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
-                  Passo 1 · Esplora
+                  Esplora
                 </div>
                 <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
                   Scopri le proposte del giorno
@@ -443,7 +442,7 @@ export default function CustomerSection() {
                   02
                 </div>
                 <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
-                  Passo 2 · Blocca
+                  Blocca
                 </div>
                 <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
                   Blocchi il piatto e l&apos;orario
@@ -459,7 +458,7 @@ export default function CustomerSection() {
                   03
                 </div>
                 <div className="text-xs font-bold uppercase tracking-wider text-resty-orange mb-2">
-                  Passo 3 · Gusta
+                  Gusta
                 </div>
                 <h3 className="font-heading font-medium text-2xl text-resty-stone mb-3 leading-snug">
                   Ti accomodi al tavolo e gusti
@@ -477,117 +476,129 @@ export default function CustomerSection() {
           4. THE CLIMAX: REDESIGNED WAITLIST FORM (#avvisami-lancio)
           Ergonomic input with fast municipality pills and spring feedback
          ───────────────────────────────────────────────────────────── */}
-      <section id="avvisami-lancio" className="py-20 md:py-28 bg-white relative">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-resty-sand/70 border border-resty-stone-border/90 p-8 sm:p-12 md:p-14 relative overflow-hidden shadow-lg">
-            {/* Subtle warm glow background aura */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-resty-orange/10 blur-[100px] rounded-full pointer-events-none" />
+      <section id="avvisami-lancio" className="relative py-24 md:py-32 bg-resty-sand/60 border-t border-resty-stone-border/60 overflow-hidden">
+        {/* L'ombreggiatura arancione calda dall'angolo alto a destra che fa impazzire,
+            ora resa ampia, aperta e scenografica sull'intera sezione */}
+        <div
+          className="pointer-events-none absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-96 h-96 sm:w-[520px] sm:h-[520px] bg-resty-orange/15 blur-[120px] rounded-full"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 bg-resty-peach/50 blur-[100px] rounded-full"
+          aria-hidden="true"
+        />
 
-            <div className="max-w-2xl mx-auto text-center relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-resty-peach border border-resty-orange/20 text-resty-orange flex items-center justify-center mx-auto mb-5 shadow-xs">
-                <Compass className="w-7 h-7" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          {/* Eyebrow badge narrativo e contestuale al posto dell'icona astratta */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-resty-stone-border text-resty-stone text-xs font-semibold shadow-xs mb-6">
+            <span className="w-2 h-2 rounded-full bg-resty-orange animate-pulse" />
+            <span>Accesso prioritario · Ristoranti pilota Varese</span>
+          </div>
+
+          <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
+            Vuoi scoprire i primi piatti al lancio?
+          </h2>
+          <p className="text-base sm:text-lg text-resty-stone-light mb-10 max-w-xl mx-auto font-sans leading-relaxed">
+            Stiamo selezionando i primi ristoranti pilota tra Varese, Gallarate e provincia.
+            Lascia la tua email per accedere in anteprima alle prime offerte al tavolo senza vincoli.
+          </p>
+
+          {submitted ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="p-8 sm:p-10 rounded-3xl bg-white border border-resty-green/20 text-center shadow-sm max-w-lg mx-auto"
+            >
+              <CheckCircle2 className="w-12 h-12 text-resty-green mx-auto mb-3" />
+              <h3 className="font-heading font-medium text-2xl text-resty-stone mb-2">
+                Sei nella lista prioritaria!
+              </h3>
+              <p className="text-sm sm:text-base text-resty-stone-light max-w-md mx-auto leading-relaxed">
+                Grazie! Ti avviseremo via email appena apriremo le prime offerte al tavolo nei ristoranti della tua zona.
+              </p>
+            </motion.div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto text-left">
+              {/* Selezione comune conforme a Fitts' Law (target touch ampi min 42px) */}
+              <div>
+                <label className="block text-xs font-semibold text-resty-stone-light mb-3 text-center uppercase tracking-wider">
+                  Seleziona la tua zona (opzionale):
+                </label>
+                <div className="flex flex-wrap justify-center gap-2.5">
+                  {quickCities.map((cityName) => {
+                    const isSelected = city === cityName;
+                    return (
+                      <button
+                        key={cityName}
+                        type="button"
+                        onClick={() => setCity(isSelected ? "" : cityName)}
+                        className={`min-h-[42px] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center justify-center ${
+                          isSelected
+                            ? "bg-resty-orange text-white shadow-sm ring-2 ring-resty-orange/30 scale-[1.02]"
+                            : "bg-white border border-resty-stone-border text-resty-stone-light hover:border-resty-orange/40 hover:text-resty-stone hover:bg-resty-sand/50"
+                        }`}
+                      >
+                        {cityName}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
-              <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight mb-3">
-                Vuoi scoprire i primi piatti al lancio?
-              </h2>
-              <p className="text-base text-resty-stone-light mb-8 max-w-lg mx-auto font-sans leading-relaxed">
-                Stiamo selezionando i primi ristoranti pilota tra Varese, Gallarate e provincia.
-                Lascia la tua email per accedere in anteprima alle prime offerte al tavolo senza vincoli.
-              </p>
-
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="p-8 rounded-2xl bg-resty-green-soft border border-resty-green/20 text-center"
-                >
-                  <CheckCircle2 className="w-12 h-12 text-resty-green mx-auto mb-3" />
-                  <h3 className="font-sans font-bold text-xl text-resty-stone mb-2">
-                    Sei nella lista prioritaria!
-                  </h3>
-                  <p className="text-sm text-resty-stone-light max-w-md mx-auto leading-relaxed">
-                    Grazie! Ti avviseremo via email appena apriremo le prime offerte al tavolo nei ristoranti della tua zona.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto text-left">
-                  {/* Quick municipality pill selection (Fitts' Law & Least Effort) */}
-                  <div>
-                    <label className="block text-xs font-semibold text-resty-stone-light mb-2 text-center">
-                      Seleziona la tua zona (opzionale):
-                    </label>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {quickCities.map((cityName) => {
-                        const isSelected = city === cityName;
-                        return (
-                          <button
-                            key={cityName}
-                            type="button"
-                            onClick={() => setCity(isSelected ? "" : cityName)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                              isSelected
-                                ? "bg-resty-orange text-white shadow-xs"
-                                : "bg-white border border-resty-stone-border text-resty-stone-light hover:border-resty-orange/50 hover:text-resty-stone"
-                            }`}
-                          >
-                            {cityName}
-                          </button>
-                        );
-                      })}
-                    </div>
+              {/* Input Fields Row con label accessibile e target touch generosi */}
+              <div className="space-y-1.5">
+                <label htmlFor="customer-waitlist-email" className="block text-xs font-semibold text-resty-stone-light pl-1">
+                  Il tuo indirizzo email
+                </label>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <div className="relative flex-1">
+                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-resty-stone-muted" />
+                    <input
+                      id="customer-waitlist-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="nome@esempio.it"
+                      aria-label="Indirizzo email"
+                      className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-resty-stone-border text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-resty-orange/40 focus:border-resty-orange transition-all bg-white text-resty-stone shadow-xs"
+                    />
                   </div>
 
-                  {/* Input Fields Row */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-                    <div className="relative flex-1">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-resty-stone-muted" />
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Inserisci la tua email..."
-                        aria-label="Indirizzo email"
-                        className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-resty-stone-border text-sm focus:outline-none focus:ring-2 focus:ring-resty-orange/50 transition-all bg-white text-resty-stone shadow-xs"
-                      />
-                    </div>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="min-h-[48px] px-7 py-3.5 rounded-xl bg-resty-orange text-white font-semibold text-sm sm:text-base hover:bg-resty-orange-hover shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 whitespace-nowrap active:scale-[0.98]"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Iscrizione...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Avvisami al lancio</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
 
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="px-6 py-3.5 rounded-xl bg-resty-orange text-white font-semibold text-sm hover:bg-resty-orange-hover shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 whitespace-nowrap active:scale-[0.98]"
-                    >
-                      {loading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>Iscrizione...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Avvisami al lancio</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                  {/* Inline Error Message */}
-                  {errorMsg && (
-                    <p className="text-xs text-red-600 text-center pt-1 animate-in fade-in duration-200">
-                      {errorMsg}
-                    </p>
-                  )}
-
-                  {/* Micro-trust indicators */}
-                  <p className="text-[11px] text-center text-resty-stone-muted pt-2">
-                    Nessuno spam. Ti scriveremo solo per comunicare il lancio dei primi ristoranti a Varese.
-                  </p>
-                </form>
+              {/* Inline Error Message */}
+              {errorMsg && (
+                <p className="text-xs text-red-600 text-center pt-1 animate-in fade-in duration-200">
+                  {errorMsg}
+                </p>
               )}
-            </div>
-          </div>
+
+              {/* Micro-trust indicator trasparente e rassicurante */}
+              <p className="text-xs text-center text-resty-stone-muted pt-1">
+                Nessuno spam. Ti scriveremo solo per comunicare il lancio dei primi ristoranti a Varese.
+              </p>
+            </form>
+          )}
         </div>
       </section>
     </div>
