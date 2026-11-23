@@ -8,7 +8,6 @@ import {
   Check,
   ArrowRight,
   Loader2,
-  Sparkles,
   Clock,
   MapPin,
   CheckCircle2,
@@ -77,12 +76,6 @@ export default function CustomerSection() {
       <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-resty-stone-border/60 bg-[radial-gradient(ellipse_at_top,rgba(221,87,28,0.07)_0%,transparent_70%)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            {/* Top Category Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-6 border border-resty-orange/15 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-resty-orange" />
-              <span>Esperienza in Sala · Provincia di Varese</span>
-            </div>
-
             {/* Cinematic Headline: Syne medium tracking-tight */}
             <h1 className="font-heading font-medium text-4xl sm:text-6xl lg:text-7xl text-resty-stone tracking-tight leading-[1.08] mb-6">
               Il piatto che scegli, <br />
