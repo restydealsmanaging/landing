@@ -19,5 +19,38 @@
     "createdAt": "2026-11-23T11:29:45.592Z",
     "email": "nome@tuoesempio",
     "city": "Non specificata"
+  },
+  {
+    "id": "lead_1795433956771_8ikba",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:39:16.771Z",
+    "email": "frate@esempio.it",
+    "city": "Non specificata"
+  },
+  {
+    "id": "lead_1795433969723_40t56",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:39:29.723Z",
+    "email": "frate@esempio.it",
+    "city": "Non specificata"
+  },
+  {
+    "id": "lead_1795434083958_kyyho",
+    "type": "customer",
+    "createdAt": "2026-11-23T11:41:23.958Z",
+    "email": "schifo@esempio.it",
+    "city": "Non specificata"
+  },
+  {
+    "id": "lead_1795436360903_rhnn2",
+    "type": "restaurant",
+    "createdAt": "2026-11-23T12:19:20.904Z",
+    "restaurantName": "Matteo Di Liberto",
+    "contactName": "Matteo Di Liberto",
+    "city": "Gallarate",
+    "phone": "3711500055",
+    "email": "matticiao.gdl@gmail.com",
+    "cuisineType": "",
+    "notes": ""
   }
 ]

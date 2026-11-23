@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RestaurateurSection from "@/components/RestaurateurSection";
-import { CheckCircle2, ShieldCheck, Sparkles, TrendingUp, Users, Clock, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Per i Ristoratori | Dai più valore al tuo menù · RestyDeals",
@@ -19,10 +19,6 @@ export default function RistoratoriPage() {
         <section className="pt-12 pb-8 md:pt-16 md:pb-12 border-b border-resty-stone-border/60 bg-resty-sand/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Programma Pilota Gratuito · Provincia di Varese</span>
-              </div>
               <h1 className="font-heading font-medium text-4xl sm:text-5xl lg:text-6xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
                 Dai più valore <br />
                 <span className="text-resty-orange">al tuo menù.</span>
