@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First one open by default
@@ -43,12 +43,8 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-resty-orange" />
-            <span>Domande Frequenti</span>
-          </div>
           <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight mb-4">
-            Risposte chiare, prima di iniziare.
+            Domande frequenti
           </h2>
           <p className="text-base text-resty-stone-light max-w-xl mx-auto">
             I chiarimenti fondamentali su come funziona RestyDeals sia per chi va a cena fuori sia per chi gestisce una sala.
