@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { sendLeadNotificationEmail, LeadData } from "@/lib/email";
 
 const DATA_FILE = path.join(process.cwd(), "leads.json");
 
@@ -16,24 +17,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const newLead = {
+    const newLead: LeadData = {
       id: "lead_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7),
       type, // 'restaurant' | 'customer'
       createdAt: new Date().toISOString(),
       ...body,
     };
 
+    // 1. Salvataggio di sicurezza locale su leads.json
     let existingLeads: Array<unknown> = [];
     try {
       const fileData = await fs.readFile(DATA_FILE, "utf-8");
       existingLeads = JSON.parse(fileData);
     } catch {
-      // File non ancora presente, inizializziamo array vuoto
       existingLeads = [];
     }
 
     existingLeads.push(newLead);
     await fs.writeFile(DATA_FILE, JSON.stringify(existingLeads, null, 2), "utf-8");
+
+    // 2. Invio notifica via email a restydeals.managing@gmail.com
+    const emailResult = await sendLeadNotificationEmail(newLead);
 
     return NextResponse.json({
       success: true,
@@ -41,10 +45,12 @@ export async function POST(request: Request) {
         type === "restaurant"
           ? "Candidatura ricevuta con successo! Ti contatteremo a breve per impostare il test."
           : "Ti abbiamo aggiunto alla lista! Riceverai un avviso appena RestyDeals sarà disponibile.",
-      leadId: newLead.id,
+      leadId: (newLead as { id?: string }).id,
+      emailSent: emailResult.success,
+      emailProvider: emailResult.provider,
     });
   } catch (error) {
-    console.error("Errore salvataggio lead:", error);
+    console.error("Errore salvataggio o invio candidatura:", error);
     return NextResponse.json(
       { error: "Si è verificato un errore durante l'invio. Riprova più tardi." },
       { status: 500 }
