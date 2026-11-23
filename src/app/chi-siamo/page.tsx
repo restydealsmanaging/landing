@@ -15,16 +15,33 @@ export default function ChiSiamoPage() {
     <div className="min-h-screen flex flex-col bg-resty-ivory text-resty-stone selection:bg-resty-orange selection:text-white">
       <Navbar />
       <main className="flex-1">
-        {/* Title La Nostra Storia */}
-        <section className="pt-12 md:pt-16 pb-2">
+        {/* Titolo iniziale e intestazione di prima */}
+        <section className="pt-12 md:pt-16 pb-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06]">
+            <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06] mb-8">
               La nostra <span className="text-resty-orange">storia</span>
             </h1>
+
+            <div className="max-w-3xl">
+              <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-4 leading-[1.12]">
+                Due ragazzi della <br />
+                <span className="text-resty-orange">provincia di Varese.</span>
+              </h2>
+              <div className="text-xl sm:text-2xl font-sans font-medium text-resty-stone mb-4">
+                Una cucina, un computer, un&apos;idea.
+              </div>
+              <p className="text-base sm:text-lg text-resty-stone-light leading-relaxed">
+                Siamo <strong>Emanuele e Matteo</strong>, due ragazzi che vivono in
+                provincia di Varese. Emanuele è ristoratore, Matteo studia
+                informatica. Ognuno di noi ama quello che fa.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Full About Us Section with Emanuele and Matteo cards */}
+        {/* 1. Sezione aggiunta a tutto schermo: "La forza di unire due mondi diversi"
+            2. Sezione Founder: card scorrevoli con a sinistra il testo e a destra la card con la foto
+        */}
         <AboutUsSection />
 
         {/* Personal Contact & Meeting Box */}

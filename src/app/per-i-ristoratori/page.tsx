@@ -46,26 +46,30 @@ export default function RistoratoriPage() {
         {/* Full Restaurateur Section with 3 Cards and Application Form */}
         <RestaurateurSection />
 
-        {/* Extra FAQ for Restaurateurs */}
-        <section className="py-16 bg-white border-t border-resty-stone-border/60">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="font-sans font-bold text-2xl text-resty-stone mb-8 text-center">
-              Domande tipiche dei ristoratori
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-resty-sand/50 border border-resty-stone-border/60">
-                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
+        {/* FAQ for Restaurateurs - Open Editorial Q&A */}
+        <section id="faq" className="py-20 md:py-28 scroll-mt-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+              <h2 className="font-heading font-medium text-3xl sm:text-4xl text-resty-stone tracking-tight leading-tight">
+                Domande tipiche dei ristoratori
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+              <div className="flex flex-col">
+                <h3 className="font-heading font-medium text-xl sm:text-2xl text-resty-stone mb-3 leading-snug tracking-tight">
                   Come imposto le mie offerte?
-                </h4>
-                <p className="text-sm text-resty-stone-light leading-relaxed">
+                </h3>
+                <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed font-sans">
                   Decidi tutto tu: il piatto del menù, il prezzo scontato, il numero massimo di porzioni disponibili e la fascia oraria di validità (es. 19:00 - 20:15).
                 </p>
               </div>
-              <div className="p-6 rounded-2xl bg-resty-sand/50 border border-resty-stone-border/60">
-                <h4 className="font-sans font-bold text-base text-resty-stone mb-2">
+
+              <div className="flex flex-col">
+                <h3 className="font-heading font-medium text-xl sm:text-2xl text-resty-stone mb-3 leading-snug tracking-tight">
                   Cosa succede se il cliente ordina extra?
-                </h4>
-                <p className="text-sm text-resty-stone-light leading-relaxed">
+                </h3>
+                <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed font-sans">
                   I clienti si siedono al tavolo: bevande, dolci, caffè e altri piatti aggiuntivi vengono pagati a prezzo pieno di listino alla cassa del tuo locale.
                 </p>
               </div>

@@ -247,7 +247,7 @@ export default function HowItWorksSection() {
     <div
       ref={containerRef}
       id="come-funziona"
-      className="relative h-[225vh] -mt-10 sm:-mt-14 pointer-events-auto"
+      className="relative h-[225vh] -mt-10 sm:-mt-14 pointer-events-auto scroll-mt-20"
     >
       {/* Sticky Full-Viewport Stage — rises natively on the GPU Compositor Thread */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-end pointer-events-none">
