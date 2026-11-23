@@ -16,12 +16,17 @@ export default function AudiencePathsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card Ristoratori */}
-          <div className="rounded-3xl bg-resty-sand/50 p-8 sm:p-10 border border-resty-stone-border/80 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-resty-stone text-white flex items-center justify-center mb-6 group-hover:bg-resty-orange transition-colors">
-                <Store className="w-7 h-7" />
-              </div>
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-orange-dark border border-resty-stone-border/60 mb-3 inline-block">
+          <div className="relative overflow-hidden rounded-3xl bg-resty-sand/50 p-8 sm:p-10 border border-resty-stone-border/80 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            {/* Sfondo con icona filigrana */}
+            <div 
+              aria-hidden="true" 
+              className="pointer-events-none absolute -right-6 -top-6 text-resty-orange/[0.08] group-hover:text-resty-orange/[0.13] group-hover:scale-105 transition-all duration-500 ease-out select-none"
+            >
+              <Store className="w-56 h-56 sm:w-64 sm:h-64" strokeWidth={1.2} />
+            </div>
+
+            <div className="relative z-10">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-orange-dark border border-resty-stone-border/60 mb-4 inline-block">
                 Area Ristoratori
               </span>
               <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
@@ -42,22 +47,29 @@ export default function AudiencePathsSection() {
               </ul>
             </div>
 
-            <Link
-              href="/per-i-ristoratori"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-orange text-white font-semibold text-sm hover:bg-resty-orange-hover shadow-sm transition-all"
-            >
-              <span>Entra nella sezione ristoratori</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="relative z-10 pt-2">
+              <Link
+                href="/per-i-ristoratori"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-orange text-white font-semibold text-sm hover:bg-resty-orange-hover shadow-sm transition-all"
+              >
+                <span>Entra nella sezione ristoratori</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
 
           {/* Card Clienti */}
-          <div className="rounded-3xl bg-resty-sand/50 p-8 sm:p-10 border border-resty-stone-border/80 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-resty-peach text-resty-orange flex items-center justify-center mb-6 group-hover:bg-resty-orange group-hover:text-white transition-colors">
-                <Utensils className="w-7 h-7" />
-              </div>
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-stone-light border border-resty-stone-border/60 mb-3 inline-block">
+          <div className="relative overflow-hidden rounded-3xl bg-resty-sand/50 p-8 sm:p-10 border border-resty-stone-border/80 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            {/* Sfondo con icona filigrana */}
+            <div 
+              aria-hidden="true" 
+              className="pointer-events-none absolute -right-6 -top-6 text-resty-stone/[0.07] group-hover:text-resty-stone/[0.12] group-hover:scale-105 transition-all duration-500 ease-out select-none"
+            >
+              <Utensils className="w-56 h-56 sm:w-64 sm:h-64" strokeWidth={1.2} />
+            </div>
+
+            <div className="relative z-10">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-stone-light border border-resty-stone-border/60 mb-4 inline-block">
                 Area Clienti
               </span>
               <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
@@ -78,13 +90,15 @@ export default function AudiencePathsSection() {
               </ul>
             </div>
 
-            <Link
-              href="/per-i-clienti"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-stone text-white font-semibold text-sm hover:bg-stone-800 shadow-sm transition-all"
-            >
-              <span>Entra nella sezione clienti</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="relative z-10 pt-2">
+              <Link
+                href="/per-i-clienti"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-stone text-white font-semibold text-sm hover:bg-stone-800 shadow-sm transition-all"
+              >
+                <span>Entra nella sezione clienti</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
 
