@@ -230,14 +230,22 @@ export default function CustomerSection() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <span className="text-xs text-gray-400 line-through mr-2">18,00 €</span>
-                          <span className="text-xl font-bold font-sans text-resty-stone">11,50 €</span>
+                      {/* Price Block (Reference style: compact stacked) */}
+                      <div className="pt-1">
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="text-xs text-gray-400 line-through font-medium">18,00 €</span>
+                          <span className="inline-flex items-center bg-resty-orange text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">
+                            -36%
+                          </span>
                         </div>
-                        <span className="text-xs font-bold text-resty-orange bg-resty-peach px-2 py-1 rounded-md">
-                          -36% sul piatto
-                        </span>
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="text-2xl font-bold font-sans text-resty-stone tracking-tight">
+                            11,50 €
+                          </span>
+                          <span className="text-sm font-medium text-gray-400">
+                            /pz
+                          </span>
+                        </div>
                       </div>
                     </div>
 
