@@ -14,18 +14,12 @@ export default function ClientiPage() {
     <div className="min-h-screen flex flex-col bg-resty-ivory text-resty-stone selection:bg-resty-orange selection:text-white">
       <Navbar />
       <main className="flex-1">
-        {/* Dedicated Hero Banner */}
-        <section className="pt-12 pb-8 md:pt-16 md:pb-12 border-b border-resty-stone-border/60 bg-resty-sand/40">
+        {/* Title Hero */}
+        <section className="pt-12 md:pt-16 pb-2">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl">
-              <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06] mb-6 sm:mb-8">
-                L&apos;esperienza unica del <span className="text-resty-orange">nostro mondo.</span>
-              </h1>
-              <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight leading-[1.12]">
-                Stessa qualità, <br />
-                <span className="text-resty-orange">prezzo in promozione.</span>
-              </h2>
-            </div>
+            <h1 className="font-heading font-medium text-5xl sm:text-7xl lg:text-8xl text-resty-stone tracking-tight leading-[1.06]">
+              L&apos;esperienza unica del <span className="text-resty-orange">nostro mondo.</span>
+            </h1>
           </div>
         </section>
 

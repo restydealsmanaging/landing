@@ -65,13 +65,10 @@ export default function CustomerSection() {
   ];
 
   return (
-    <section id="per-i-clienti" className="py-20 md:py-28 bg-resty-sand/40 border-t border-resty-stone-border/60">
+    <section id="per-i-clienti" className="pt-6 pb-20 md:pt-8 md:pb-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-resty-peach text-xs font-bold uppercase tracking-wider text-resty-orange-dark mb-4">
-            Per chi va al ristorante
-          </div>
           <h2 className="font-heading font-medium text-3xl sm:text-5xl text-resty-stone tracking-tight mb-6 leading-[1.12]">
             Stessa qualità, <br />
             <span className="text-resty-orange">prezzo in promozione.</span>
