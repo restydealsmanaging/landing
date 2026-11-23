@@ -26,12 +26,12 @@ export default function AudiencePathsSection() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-orange-dark border border-resty-stone-border/60 mb-4 inline-block">
+              <h3 className="font-heading font-bold text-2xl sm:text-3xl text-resty-stone mb-2 tracking-tight">
                 Area Ristoratori
-              </span>
-              <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
-                Dai più valore al tuo menù
               </h3>
+              <p className="font-sans font-semibold text-base sm:text-lg text-resty-orange mb-3">
+                Dai più valore al tuo menù
+              </p>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed mb-6">
                 Riempi i coperti nelle ore tranquille e vendi ciò che rischia di restare invenduto. Decidi tu quali piatti proporre, a che prezzo e in quali orari.
               </p>
@@ -69,12 +69,12 @@ export default function AudiencePathsSection() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-white text-resty-stone-light border border-resty-stone-border/60 mb-4 inline-block">
+              <h3 className="font-heading font-bold text-2xl sm:text-3xl text-resty-stone mb-2 tracking-tight">
                 Area Clienti
-              </span>
-              <h3 className="font-sans font-bold text-2xl text-resty-stone mb-3 leading-snug">
-                Stessa qualità, prezzo in promozione
               </h3>
+              <p className="font-sans font-semibold text-base sm:text-lg text-resty-stone/85 mb-3">
+                Stessa qualità, prezzo in promozione
+              </p>
               <p className="text-sm sm:text-base text-resty-stone-light leading-relaxed mb-6">
                 Scopri le offerte dei ristoranti aderenti nella provincia di Varese. Sai quanto spendi prima di andare e ti godi la cucina autentica direttamente in sala.
               </p>
