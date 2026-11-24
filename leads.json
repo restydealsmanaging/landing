@@ -88,5 +88,17 @@
     "email": "matticiao.gdl@gmail.com",
     "cuisineType": "",
     "notes": ""
+  },
+  {
+    "id": "lead_1795451375359_97kf4",
+    "type": "restaurant",
+    "createdAt": "2026-11-23T16:29:35.359Z",
+    "restaurantName": "Pizzeria Bella Napoli",
+    "contactName": "Luigi",
+    "city": "Varese",
+    "phone": "3339998888",
+    "email": "test@example.com",
+    "cuisineType": "Pizza",
+    "notes": "Test"
   }
 ]

@@ -58,11 +58,11 @@ export default function ChiSiamoPage() {
             </p>
             <div className="inline-flex flex-col sm:flex-row items-center gap-3">
               <a
-                href="mailto:info@restydeals.it"
+                href="mailto:restydeals.managing@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-resty-orange text-white text-sm font-semibold hover:bg-resty-orange-hover shadow-sm transition-all"
               >
                 <Mail className="w-4 h-4" />
-                <span>Scrivici a info@restydeals.it</span>
+                <span>Scrivici a restydeals.managing@gmail.com</span>
               </a>
               <a
                 href="/per-i-ristoratori#candidatura-ristoratore"

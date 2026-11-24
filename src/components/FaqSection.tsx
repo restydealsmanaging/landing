@@ -90,10 +90,10 @@ export default function FaqSection() {
         <div className="mt-12 text-center text-xs sm:text-sm text-resty-stone-muted">
           Hai una domanda specifica da farci? Scrivi direttamente a Matteo ed Emanuele:{" "}
           <a
-            href="mailto:info@restydeals.it"
+            href="mailto:restydeals.managing@gmail.com"
             className="text-resty-orange font-semibold hover:underline"
           >
-            info@restydeals.it
+            restydeals.managing@gmail.com
           </a>
         </div>
       </div>
