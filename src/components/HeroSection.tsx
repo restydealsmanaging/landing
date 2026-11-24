@@ -88,10 +88,10 @@ export default function HeroSection() {
                     loading="eager"
                     decoding="async"
                   />
-                  {/* Top Floating Badge (Urgency / Scarcity) */}
+                  {/* Top Floating Tag (Etichetta rettangolare pulita, no pillow) */}
                   <div className="absolute top-3 right-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 text-[11px] font-sans font-semibold text-resty-orange-dark shadow-xs border border-resty-stone/10">
-                      <Users size={12} className="text-resty-orange" />
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/95 text-[11px] font-sans font-semibold text-resty-orange-dark shadow-xs border border-resty-stone/10">
+                      <Users size={11} className="text-resty-orange" />
                       Solo 3 rimasti
                     </span>
                   </div>
@@ -99,12 +99,12 @@ export default function HeroSection() {
 
                 {/* Card Body */}
                 <div className="p-5 flex flex-col flex-1">
-                  {/* Restaurant name & Location */}
+                  {/* Restaurant name & Location (Tipografia pura, no badge pillow) */}
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="text-[11px] text-resty-stone-muted font-sans font-medium uppercase tracking-wider truncate">
                       Trattoria San Giorgio
                     </span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-resty-stone bg-resty-sand px-2 py-0.5 rounded-full border border-resty-stone/10 shrink-0">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-sans font-medium text-resty-stone-muted shrink-0">
                       <MapPin size={11} className="text-resty-orange" />
                       Varese · Centro
                     </span>
