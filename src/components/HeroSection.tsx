@@ -88,25 +88,25 @@ export default function HeroSection() {
                     loading="eager"
                     decoding="async"
                   />
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white text-[11px] font-semibold text-resty-stone shadow-xs">
-                      <MapPin size={12} className="text-resty-orange" />
-                      Varese · Centro
+                  {/* Top Floating Badge (Urgency / Scarcity) */}
+                  <div className="absolute top-3 right-3">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 text-[11px] font-sans font-semibold text-resty-orange-dark shadow-xs border border-resty-stone/10">
+                      <Users size={12} className="text-resty-orange" />
+                      Solo 3 rimasti
                     </span>
                   </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-5 flex flex-col flex-1">
-                  {/* Restaurant name & remaining counter */}
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="text-[11px] text-resty-stone-muted font-sans font-medium uppercase tracking-wider">
+                  {/* Restaurant name & Location */}
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="text-[11px] text-resty-stone-muted font-sans font-medium uppercase tracking-wider truncate">
                       Trattoria San Giorgio
                     </span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-resty-orange-dark bg-resty-peach/70 px-2 py-0.5 rounded-full">
-                      <Users size={11} />
-                      Solo 3 rimasti
+                    <span className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-resty-stone bg-resty-sand px-2 py-0.5 rounded-full border border-resty-stone/10 shrink-0">
+                      <MapPin size={11} className="text-resty-orange" />
+                      Varese · Centro
                     </span>
                   </div>
 
