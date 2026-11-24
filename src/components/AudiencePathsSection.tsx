@@ -52,7 +52,7 @@ export default function AudiencePathsSection() {
                 href="/per-i-ristoratori"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-orange text-white font-semibold text-sm hover:bg-resty-orange-hover shadow-sm transition-all"
               >
-                <span>Entra nella sezione ristoratori</span>
+                <span>Scopri i vantaggi</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -95,36 +95,29 @@ export default function AudiencePathsSection() {
                 href="/per-i-clienti"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-resty-stone text-white font-semibold text-sm hover:bg-stone-800 shadow-sm transition-all"
               >
-                <span>Entra nella sezione clienti</span>
+                <span>Scopri l&apos;esperienza</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Founder Story Strip */}
-        <div className="rounded-2xl bg-resty-sand p-6 sm:p-8 border border-resty-stone-border flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-resty-peach flex items-center justify-center text-resty-orange shrink-0">
-              <Heart className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-sans font-bold text-lg text-resty-stone">
-                Due ragazzi della provincia di Varese
-              </h4>
-              <p className="text-xs sm:text-sm text-resty-stone-light">
-                Una cucina, un computer, un&apos;idea. Emanuele (ristoratore) e Matteo (studente di informatica).
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/chi-siamo"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-resty-orange hover:text-resty-orange-hover transition-colors shrink-0"
-          >
-            <span>Leggi la nostra storia</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* Founder Story - Paragrafino aperto (Zero Cards) */}
+        <div className="text-center max-w-2xl mx-auto pt-4 sm:pt-6">
+          <p className="text-sm sm:text-base text-resty-stone-light font-sans leading-relaxed">
+            <span className="inline-flex items-center gap-1.5 font-bold text-resty-stone mr-1.5">
+              <Heart className="w-4 h-4 text-resty-orange shrink-0 inline" />
+              Due ragazzi della provincia di Varese.
+            </span>
+            Una cucina, un computer, un&apos;idea. Emanuele (ristoratore) e Matteo (studente di informatica).{" "}
+            <Link
+              href="/chi-siamo"
+              className="inline-flex items-center gap-1 font-semibold text-resty-orange hover:text-resty-orange-hover transition-colors ml-1 whitespace-nowrap"
+            >
+              <span>Leggi la nostra storia</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </p>
         </div>
       </div>
     </section>
